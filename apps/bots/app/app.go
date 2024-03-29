@@ -18,6 +18,7 @@ import (
 	buscore "github.com/twirapp/twir/libs/bus-core"
 	"github.com/twirapp/twir/libs/grpc/clients"
 	"github.com/twirapp/twir/libs/grpc/events"
+	"github.com/twirapp/twir/libs/grpc/giveaways"
 	"github.com/twirapp/twir/libs/grpc/parser"
 	"github.com/twirapp/twir/libs/grpc/tokens"
 	"github.com/twirapp/twir/libs/grpc/websockets"
@@ -46,6 +47,9 @@ var App = fx.Module(
 		},
 		func(config cfg.Config) websockets.WebsocketClient {
 			return clients.NewWebsocket(config.AppEnv)
+		},
+		func(config cfg.Config) giveaways.GiveawaysClient {
+			return clients.NewGiveaways(config.AppEnv)
 		},
 		func(config cfg.Config) (*redis.Client, error) {
 			redisOpts, err := redis.ParseURL(config.RedisUrl)

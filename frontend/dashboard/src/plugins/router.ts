@@ -153,6 +153,12 @@ export const newRouter = (queryClient: QueryClient) => {
 					meta: { noPadding: true },
 				},
 				{
+					name: 'Giveaways',
+					path: '/dashboard/giveaways',
+					component: () => import('../pages/Giveaways.vue'),
+					meta: { neededPermission: 'MANAGE_GIVEAWAYS' },
+				},
+				{
 					name: 'Forbidden',
 					path: '/dashboard/forbidden',
 					component: () => import('../pages/NoAccess.vue'),

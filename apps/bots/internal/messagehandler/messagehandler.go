@@ -17,6 +17,7 @@ import (
 	buscore "github.com/twirapp/twir/libs/bus-core"
 	"github.com/twirapp/twir/libs/bus-core/twitch"
 	"github.com/twirapp/twir/libs/grpc/events"
+	"github.com/twirapp/twir/libs/grpc/giveaways"
 	"github.com/twirapp/twir/libs/grpc/parser"
 	"github.com/twirapp/twir/libs/grpc/websockets"
 	"go.uber.org/fx"
@@ -38,6 +39,7 @@ type Opts struct {
 	ModerationHelpers *moderationhelpers.ModerationHelpers
 	Config            cfg.Config
 	Bus               *buscore.Bus
+	GiveawaysGrpc     giveaways.GiveawaysClient
 }
 
 type MessageHandler struct {
@@ -51,6 +53,7 @@ type MessageHandler struct {
 	moderationHelpers *moderationhelpers.ModerationHelpers
 	config            cfg.Config
 	bus               *buscore.Bus
+	giveawaysGrpc     giveaways.GiveawaysClient
 }
 
 func New(opts Opts) *MessageHandler {
@@ -65,6 +68,7 @@ func New(opts Opts) *MessageHandler {
 		moderationHelpers: opts.ModerationHelpers,
 		config:            opts.Config,
 		bus:               opts.Bus,
+		giveawaysGrpc:     opts.GiveawaysGrpc,
 	}
 
 	return handler
@@ -91,6 +95,7 @@ var handlersForExecute = []func(
 	(*MessageHandler).handleRemoveLurker,
 	(*MessageHandler).handleModeration,
 	(*MessageHandler).handleFirstStreamUserJoin,
+	(*MessageHandler).handleGiveaways,
 }
 
 func (c *MessageHandler) Handle(ctx context.Context, req twitch.TwitchChatMessage) error {
@@ -166,7 +171,10 @@ func (c *MessageHandler) Handle(ctx context.Context, req twitch.TwitchChatMessag
 				c.logger.Error(
 					"error when executing message handler function",
 					slog.Any("err", err),
-					slog.String("functionName", runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name()),
+					slog.String(
+						"functionName",
+						runtime.FuncForPC(reflect.ValueOf(f).Pointer()).Name(),
+					),
 				)
 			}
 		}()

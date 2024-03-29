@@ -194,6 +194,23 @@ services:
         constraints:
           - node.role == manager
 
+  giveaways:
+    image: twirapp/giveaways:latest
+    secrets:
+      - twir_doppler_token
+    networks:
+      - twir
+    deploy:
+      update_config:
+        parallelism: 2
+      restart_policy:
+        condition: any
+        delay: 30s
+        max_attempts: 30
+      endpoint_mode: dnsrr
+      mode: replicated
+      replicas: 3
+
   parser:
     image: twirapp/parser:latest
     secrets:

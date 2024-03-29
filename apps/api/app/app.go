@@ -25,6 +25,7 @@ import (
 	"github.com/twirapp/twir/libs/grpc/clients"
 	"github.com/twirapp/twir/libs/grpc/discord"
 	"github.com/twirapp/twir/libs/grpc/events"
+	"github.com/twirapp/twir/libs/grpc/giveaways"
 	"github.com/twirapp/twir/libs/grpc/integrations"
 	"github.com/twirapp/twir/libs/grpc/parser"
 	"github.com/twirapp/twir/libs/grpc/tokens"
@@ -68,6 +69,9 @@ var App = fx.Options(
 		},
 		func(c cfg.Config) discord.DiscordClient {
 			return clients.NewDiscord(c.AppEnv)
+		},
+		func(c cfg.Config) giveaways.GiveawaysClient {
+			return clients.NewGiveaways(c.AppEnv)
 		},
 		func(config cfg.Config, lc fx.Lifecycle) (*redis.Client, error) {
 			redisOpts, err := redis.ParseURL(config.RedisUrl)

@@ -100,6 +100,9 @@ export const PERMISSIONS_FLAGS = {
 
 	VIEW_GAMES: 'Can view games',
 	MANAGE_GAMES: 'Can manage games',
+
+	VIEW_GIVEAWAYS: 'Can view giveaways',
+	MANAGE_GIVEAWAYS: 'Can manage giveaways',
 };
 
 export type PermissionsType = keyof typeof PERMISSIONS_FLAGS

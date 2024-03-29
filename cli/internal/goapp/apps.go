@@ -13,4 +13,5 @@ var Apps = []TwirGoApp{
 	{Name: "ytsr"},
 	{Name: "scheduler"},
 	{Name: "discord"},
+	{Name: "giveaways"},
 }

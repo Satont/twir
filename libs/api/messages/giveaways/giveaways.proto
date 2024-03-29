@@ -1,0 +1,104 @@
+syntax = "proto3";
+option go_package = "github.com/twirapp/twir/libs/api/messages/giveaways";
+package messages.giveaways;
+
+message Giveaway {
+	string id = 1;
+	string description = 2;
+	string channel_id = 3;
+	int32 required_min_watch_time = 4;
+	int32 required_min_follow_time = 5;
+	int32 required_min_messages = 6;
+	int32 required_min_subscriber_tier = 7;
+	int32 required_min_subscriber_time = 8;
+	repeated string roles_ids = 9;
+	string keyword = 10;
+	int32 followers_luck = 11;
+	int32 subscribers_luck = 12;
+	string created_at = 13;
+	optional string finished_at = 14;
+	bool is_running = 15;
+	bool followers_age_luck = 16;
+	int32 winners_count = 17;
+	bool is_finished = 18;
+}
+
+message CreateRequest {
+	string description = 1;
+	int32 required_min_watch_time = 2;
+	int32 required_min_follow_time = 3;
+	int32 required_min_messages = 4;
+	int32 required_min_subscriber_tier = 5;
+	int32 required_min_subscriber_time = 6;
+	repeated string roles_ids = 7;
+	string keyword = 8;
+	int32 followers_luck = 9;
+	int32 subscribers_luck = 10;
+	optional string finished_at = 12;
+	bool followers_age_luck = 14;
+	int32 winners_count = 15;
+}
+
+message GetWinnersRequest {
+	string giveaway_id = 1;
+}
+
+message GetWinnersResponse {
+	repeated Winner winners = 1;
+}
+
+message ChooseWinnersRequest {
+	string giveaway_id = 1;
+}
+
+message ChooseWinnersResponse {
+	repeated Winner winners = 1;
+}
+
+message GetParticipantsRequest {
+  string giveaway_id = 1;
+  string query = 2;
+}
+
+message GetParticipantsResponse {
+  repeated Winner winners = 1;
+  int64 total_count = 2;
+}
+
+message Winner {
+  string user_id = 1;
+  string display_name = 2;
+}
+
+message GetAllResponse { repeated Giveaway giveaways = 1; }
+
+message DeleteRequest { string id = 1; }
+
+message GetByIdRequest { string id = 1; }
+
+message UpdateRequest {
+	optional string description = 1;
+	optional int32 required_min_watch_time = 2;
+	optional int32 required_min_follow_time = 3;
+	optional int32 required_min_messages = 4;
+	optional int32 required_min_subscriber_tier = 5;
+	optional int32 required_min_subscriber_time = 6;
+	optional string keyword = 7;
+	optional int32 followers_luck = 8;
+	optional int32 subscribers_luck = 9;
+	optional bool is_running = 11;
+	optional bool followers_age_luck = 12;
+	optional int32 winners_count = 13;
+	repeated string roles_ids = 14;
+	optional bool is_finished = 15;
+	string id = 16;
+}
+
+message ClearParticipantsRequest {
+	string giveaway_id = 1;
+}
+
+message ClearParticipantsResponse {
+	repeated Winner winners = 1;
+  int64 total_count = 2;
+}

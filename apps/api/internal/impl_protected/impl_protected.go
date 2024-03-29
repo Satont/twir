@@ -16,6 +16,7 @@ import (
 	"github.com/satont/twir/apps/api/internal/impl_protected/feedback"
 	"github.com/satont/twir/apps/api/internal/impl_protected/files"
 	"github.com/satont/twir/apps/api/internal/impl_protected/games"
+	"github.com/satont/twir/apps/api/internal/impl_protected/giveaways"
 	"github.com/satont/twir/apps/api/internal/impl_protected/greetings"
 	"github.com/satont/twir/apps/api/internal/impl_protected/integrations"
 	"github.com/satont/twir/apps/api/internal/impl_protected/keywords"
@@ -33,6 +34,7 @@ import (
 	"github.com/satont/twir/libs/logger"
 	buscore "github.com/twirapp/twir/libs/bus-core"
 	"github.com/twirapp/twir/libs/grpc/discord"
+	giveawaysService "github.com/twirapp/twir/libs/grpc/giveaways"
 	integrationsGrpc "github.com/twirapp/twir/libs/grpc/integrations"
 	"github.com/twirapp/twir/libs/grpc/parser"
 	"github.com/twirapp/twir/libs/grpc/tokens"
@@ -67,6 +69,7 @@ type Protected struct {
 	*users.Users
 	*feedback.Feedback
 	*public_settings.PublicSettings
+	*giveaways.Giveaways
 }
 
 type Opts struct {
@@ -82,6 +85,7 @@ type Opts struct {
 	ParserGrpc       parser.ParserClient
 	WebsocketsGrpc   websockets.WebsocketClient
 	DiscordGrpc      discord.DiscordClient
+	GiveawaysGrpc    giveawaysService.GiveawaysClient
 	Logger           logger.Logger
 	Bus              *buscore.Bus
 }
@@ -98,6 +102,7 @@ func New(opts Opts) *Protected {
 			Parser:       opts.ParserGrpc,
 			Websockets:   opts.WebsocketsGrpc,
 			Discord:      opts.DiscordGrpc,
+			Giveaways:    opts.GiveawaysGrpc,
 		},
 		Logger: opts.Logger,
 		Bus:    opts.Bus,
@@ -129,5 +134,6 @@ func New(opts Opts) *Protected {
 		Users:            &users.Users{Deps: d},
 		Feedback:         &feedback.Feedback{Deps: d},
 		PublicSettings:   &public_settings.PublicSettings{Deps: d},
+		Giveaways:        &giveaways.Giveaways{Deps: d},
 	}
 }

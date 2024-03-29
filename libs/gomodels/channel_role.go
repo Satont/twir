@@ -4,14 +4,14 @@ import "github.com/lib/pq"
 
 type ChannelRole struct {
 	ID          string          `gorm:"column:id;primary_key;type:uuid;default:uuid_generate_v4()" json:"id"`
-	ChannelID   string          `gorm:"column:channelId;type:uuid;" json:"-"`
-	Name        string          `gorm:"column:name;type:text;" json:"name"`
-	Type        ChannelRoleEnum `gorm:"column:type;type:text;" json:"type"`
-	Permissions pq.StringArray  `gorm:"column:permissions;type:text[]" json:"permissions"`
-	Settings    []byte          `gorm:"column:settings;type:jsonb" json:"settings"`
+	ChannelID   string          `gorm:"column:channelId;type:uuid;"                                json:"-"`
+	Name        string          `gorm:"column:name;type:text;"                                     json:"name"`
+	Type        ChannelRoleEnum `gorm:"column:type;type:text;"                                     json:"type"`
+	Permissions pq.StringArray  `gorm:"column:permissions;type:text[]"                             json:"permissions"`
+	Settings    []byte          `gorm:"column:settings;type:jsonb"                                 json:"settings"`
 
 	Channel *Channels          `gorm:"foreignKey:ChannelID" json:"-"`
-	Users   []*ChannelRoleUser `gorm:"foreignKey:RoleID" json:"-"`
+	Users   []*ChannelRoleUser `gorm:"foreignKey:RoleID"    json:"-"`
 }
 
 type ChannelRoleSettings struct {
@@ -76,4 +76,7 @@ const (
 
 	RolePermissionViewOverlays   RolePermissionEnum = "VIEW_OVERLAYS"
 	RolePermissionManageOverlays RolePermissionEnum = "MANAGE_OVERLAYS"
+
+	RolePermissionViewGiveaways   RolePermissionEnum = "VIEW_GIVEAWAYS"
+	RolePermissionManageGiveaways RolePermissionEnum = "MANAGE_GIVEAWAYS"
 )

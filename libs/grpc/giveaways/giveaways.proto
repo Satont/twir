@@ -1,0 +1,26 @@
+syntax = "proto3";
+option go_package = "tsuwari/grpc/giveaways";
+package giveaways;
+import "google/protobuf/empty.proto";
+
+service Giveaways {
+  rpc TryProcessParticipant(TryProcessParticipantRequest)
+      returns (google.protobuf.Empty) {}
+  rpc ChooseWinner(ChooseWinnerRequest) returns (ChooseWinnerResponse) {}
+}
+
+message TryProcessParticipantRequest {
+  string user_id = 2;
+  string message_text = 3;
+  string channel_id = 4;
+  string display_name = 5;
+}
+
+message ChooseWinnerRequest { string giveaway_id = 1; }
+
+message ChooseWinnerResponse { repeated SimplifiedWinner winners = 1; }
+
+message SimplifiedWinner {
+  string user_id = 1;
+  string display_name = 2;
+}

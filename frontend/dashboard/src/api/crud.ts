@@ -221,3 +221,13 @@ export const useModerationManager = () => createCrudManager({
 	deleteOne: protectedApiClient?.moderationDelete,
 	patch: protectedApiClient?.moderationEnableOrDisable,
 });
+
+export const useGiveawaysManager = () => createCrudManager({
+	queryKey: 'giveaways',
+	getAll: protectedApiClient?.giveawaysGetAll,
+	update: protectedApiClient?.giveawaysUpdate,
+	create: protectedApiClient?.giveawaysCreate,
+	patch: null,
+	deleteOne: protectedApiClient?.giveawaysDelete,
+	getOne: protectedApiClient?.giveawaysGetById,
+});

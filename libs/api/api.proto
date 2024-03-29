@@ -59,6 +59,8 @@ import "messages/overlays_now_playing/overlays_now_playing.proto";
 
 import "messages/channels_public_settings/channels_public_settings.proto";
 
+import "messages/giveaways/giveaways.proto";
+
 service Protected {
 	rpc AuthUserProfile(google.protobuf.Empty) returns (messages.auth.Profile) {}
 	rpc AuthSetDashboard(messages.auth.SetDashboard) returns (google.protobuf.Empty) {}
@@ -268,6 +270,16 @@ service Protected {
 	rpc OverlaysNowPlayingCreate(messages.overlays_now_playing.CreateRequest) returns (messages.overlays_now_playing.Settings) {}
 
 	rpc ChannelsPublicSettingsUpdate(messages.channels_public_settings.UpdateRequest) returns (messages.channels_public_settings.Settings) {}
+
+	rpc GiveawaysGetAll(google.protobuf.Empty) returns (messages.giveaways.GetAllResponse) {}
+	rpc GiveawaysGetById(messages.giveaways.GetByIdRequest) returns (messages.giveaways.Giveaway) {}
+	rpc GiveawaysCreate(messages.giveaways.CreateRequest) returns (messages.giveaways.Giveaway) {}
+	rpc GiveawaysDelete(messages.giveaways.DeleteRequest) returns (google.protobuf.Empty) {}
+	rpc GiveawaysUpdate(messages.giveaways.UpdateRequest) returns (messages.giveaways.Giveaway) {}
+	rpc GiveawaysGetWinners(messages.giveaways.GetWinnersRequest) returns (messages.giveaways.GetWinnersResponse) {}
+	rpc GiveawaysChooseWinners(messages.giveaways.ChooseWinnersRequest) returns (messages.giveaways.ChooseWinnersResponse) {}
+	rpc GiveawaysGetParticipants(messages.giveaways.GetParticipantsRequest) returns (messages.giveaways.GetParticipantsResponse) {}
+	rpc GiveawaysClearParticipants(messages.giveaways.ClearParticipantsRequest) returns (messages.giveaways.ClearParticipantsResponse) {}
 }
 
 // UnProtected

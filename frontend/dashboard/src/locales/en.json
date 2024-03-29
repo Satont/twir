@@ -59,7 +59,8 @@
     "alerts": "Alerts",
     "games": "Games",
     "users": "Users",
-    "moderation": "Moderation"
+    "moderation": "Moderation",
+		"giveaways": "Giveaways"
   },
   "navbar": {
     "logout": "Logout",
@@ -163,6 +164,28 @@
       }
     }
   },
+	"giveaways": {
+		"newGiveawayTitle": "New giveaway",
+		"modal": {
+			"permissions": "Roles",
+			"description": "Description",
+			"roll": "Roll",
+			"cantRoll": "Can't roll",
+			"finish": "Finish",
+			"keyword": "Keyword",
+			"followersLuck": "Followers additional luck",
+			"subscribersLuck": "Subscribers additional luck",
+			"requiredMinWatchTime": "Required min watch time",
+			"requiredMinMessages": "Required min messages",
+			"winnersCount": "Winners count",
+			"running": "Running",
+			"stopped": "Stopped",
+			"requiredMinSubscriberTime": "Required min subscribe time"
+		},
+		"users": {
+			"title": "Users"
+		}
+	},
   "dashboard": {
 		"header": {
 			"managingUser": "Managing user",
