@@ -15,20 +15,7 @@ import (
 
 // TwitchProfile is the resolver for the twitchProfile field.
 func (r *authenticatedUserResolver) TwitchProfile(ctx context.Context, obj *gqlmodel.AuthenticatedUser) (*gqlmodel.TwirUserTwitchInfo, error) {
-	user, err := data_loader.GetHelixUser(ctx, obj.ID)
-	if err != nil {
-		return nil, err
-	}
-	if user == nil {
-		return nil, nil
-	}
-
-	return &gqlmodel.TwirUserTwitchInfo{
-		Login:           user.Login,
-		DisplayName:     user.DisplayName,
-		ProfileImageURL: user.ProfileImageURL,
-		Description:     user.Description,
-	}, nil
+	return data_loader.GetHelixUser(ctx, obj.ID)
 }
 
 // AuthenticatedUser is the resolver for the authenticatedUser field.
@@ -43,7 +30,6 @@ func (r *queryResolver) AuthenticatedUser(ctx context.Context) (*gqlmodel.Authen
 		IsBotAdmin:        user.IsBotAdmin,
 		IsBanned:          user.IsBanned,
 		HideOnLandingPage: user.HideOnLandingPage,
-		TwitchProfile:     &gqlmodel.TwirUserTwitchInfo{},
 		APIKey:            user.ApiKey,
 	}
 

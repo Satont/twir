@@ -8,6 +8,7 @@ import (
 	"github.com/nicklaw5/helix/v2"
 	config "github.com/satont/twir/libs/config"
 	"github.com/satont/twir/libs/twitch"
+	"github.com/twirapp/twir/apps/api-gql/internal/gql/resolvers/integrations"
 	subscriptions_store "github.com/twirapp/twir/apps/api-gql/internal/gql/subscriptions-store"
 	"github.com/twirapp/twir/apps/api-gql/internal/sessions"
 	twitchcahe "github.com/twirapp/twir/libs/cache/twitch"
@@ -21,25 +22,31 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct {
-	config             config.Config
-	sessions           *sessions.Sessions
-	gorm               *gorm.DB
-	twitchClient       *helix.Client
-	cachedTwitchClient *twitchcahe.CachedTwitchClient
-	minioClient        *minio.Client
-	subscriptionsStore *subscriptions_store.SubscriptionsStore
+	config                      config.Config
+	sessions                    *sessions.Sessions
+	gorm                        *gorm.DB
+	twitchClient                *helix.Client
+	cachedTwitchClient          *twitchcahe.CachedTwitchClient
+	minioClient                 *minio.Client
+	subscriptionsStore          *subscriptions_store.SubscriptionsStore
+	integrationsLinksResolver   *integrations.LinksResolver
+	integrationsDataFetcher     *integrations.DataFetcher
+	integrationsPostCodeHandler *integrations.PostCodeHandler
 }
 
 type Opts struct {
 	fx.In
 
-	Sessions           *sessions.Sessions
-	Gorm               *gorm.DB
-	Config             config.Config
-	TokensGrpc         tokens.TokensClient
-	CachedTwitchClient *twitchcahe.CachedTwitchClient
-	Minio              *minio.Client
-	SubscriptionsStore *subscriptions_store.SubscriptionsStore
+	Sessions                    *sessions.Sessions
+	Gorm                        *gorm.DB
+	Config                      config.Config
+	TokensGrpc                  tokens.TokensClient
+	CachedTwitchClient          *twitchcahe.CachedTwitchClient
+	Minio                       *minio.Client
+	SubscriptionsStore          *subscriptions_store.SubscriptionsStore
+	IntegrationsLinksResolver   *integrations.LinksResolver
+	IntegrationsDataFetcher     *integrations.DataFetcher
+	IntegrationsPostCodeHandler *integrations.PostCodeHandler
 }
 
 func New(opts Opts) (*Resolver, error) {
@@ -49,13 +56,16 @@ func New(opts Opts) (*Resolver, error) {
 	}
 
 	return &Resolver{
-		config:             opts.Config,
-		sessions:           opts.Sessions,
-		gorm:               opts.Gorm,
-		twitchClient:       twitchClient,
-		cachedTwitchClient: opts.CachedTwitchClient,
-		minioClient:        opts.Minio,
-		subscriptionsStore: opts.SubscriptionsStore,
+		config:                      opts.Config,
+		sessions:                    opts.Sessions,
+		gorm:                        opts.Gorm,
+		twitchClient:                twitchClient,
+		cachedTwitchClient:          opts.CachedTwitchClient,
+		minioClient:                 opts.Minio,
+		subscriptionsStore:          opts.SubscriptionsStore,
+		integrationsLinksResolver:   opts.IntegrationsLinksResolver,
+		integrationsDataFetcher:     opts.IntegrationsDataFetcher,
+		integrationsPostCodeHandler: opts.IntegrationsPostCodeHandler,
 	}, nil
 }
 

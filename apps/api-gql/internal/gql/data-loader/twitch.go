@@ -3,13 +3,13 @@ package data_loader
 import (
 	"context"
 
-	"github.com/nicklaw5/helix/v2"
 	"github.com/samber/lo"
+	"github.com/twirapp/twir/apps/api-gql/internal/gql/gqlmodel"
 	"github.com/twirapp/twir/libs/cache/twitch"
 )
 
 func (c *DataLoader) getHelixUsersByIds(ctx context.Context, ids []string) (
-	[]*helix.User,
+	[]*gqlmodel.TwirUserTwitchInfo,
 	[]error,
 ) {
 	users, err := c.cachedTwitchClient.GetUsersByIds(ctx, ids)
@@ -17,7 +17,7 @@ func (c *DataLoader) getHelixUsersByIds(ctx context.Context, ids []string) (
 		return nil, []error{err}
 	}
 
-	mappedUsers := make([]*helix.User, 0, len(users))
+	mappedUsers := make([]*gqlmodel.TwirUserTwitchInfo, 0, len(users))
 
 	for _, id := range ids {
 		user, ok := lo.Find(
@@ -27,7 +27,7 @@ func (c *DataLoader) getHelixUsersByIds(ctx context.Context, ids []string) (
 		)
 		if !ok {
 			mappedUsers = append(
-				mappedUsers, &helix.User{
+				mappedUsers, &gqlmodel.TwirUserTwitchInfo{
 					ID:          id,
 					Login:       "[twir] twitch banned",
 					DisplayName: "[Twir] Twitch Banned",
@@ -36,18 +36,26 @@ func (c *DataLoader) getHelixUsersByIds(ctx context.Context, ids []string) (
 			continue
 		}
 
-		mappedUsers = append(mappedUsers, &user.User)
+		mappedUsers = append(
+			mappedUsers, &gqlmodel.TwirUserTwitchInfo{
+				ID:              user.ID,
+				Login:           user.Login,
+				DisplayName:     user.DisplayName,
+				ProfileImageURL: user.ProfileImageURL,
+				Description:     user.Description,
+			},
+		)
 	}
 
 	return mappedUsers, nil
 }
 
-func GetHelixUser(ctx context.Context, userID string) (*helix.User, error) {
+func GetHelixUser(ctx context.Context, userID string) (*gqlmodel.TwirUserTwitchInfo, error) {
 	loaders := GetLoaderForRequest(ctx)
 	return loaders.helixUserLoader.Load(ctx, userID)
 }
 
-func GetHelixUsers(ctx context.Context, userIDs []string) ([]*helix.User, error) {
+func GetHelixUsers(ctx context.Context, userIDs []string) ([]*gqlmodel.TwirUserTwitchInfo, error) {
 	loaders := GetLoaderForRequest(ctx)
 	return loaders.helixUserLoader.LoadAll(ctx, userIDs)
 }

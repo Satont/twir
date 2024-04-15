@@ -121,11 +121,10 @@ func (r *queryResolver) TwirUsers(ctx context.Context, opts gqlmodel.TwirUsersSe
 
 	for _, user := range dbUsers {
 		u := gqlmodel.TwirAdminUser{
-			ID:            user.ID,
-			IsBotAdmin:    user.IsBotAdmin,
-			IsBanned:      user.IsBanned,
-			TwitchProfile: &gqlmodel.TwirUserTwitchInfo{},
-			APIKey:        user.ApiKey,
+			ID:         user.ID,
+			IsBotAdmin: user.IsBotAdmin,
+			IsBanned:   user.IsBanned,
+			APIKey:     user.ApiKey,
 		}
 
 		if user.Channel != nil {
@@ -143,20 +142,7 @@ func (r *queryResolver) TwirUsers(ctx context.Context, opts gqlmodel.TwirUsersSe
 
 // TwitchProfile is the resolver for the twitchProfile field.
 func (r *twirAdminUserResolver) TwitchProfile(ctx context.Context, obj *gqlmodel.TwirAdminUser) (*gqlmodel.TwirUserTwitchInfo, error) {
-	user, err := data_loader.GetHelixUser(ctx, obj.ID)
-	if err != nil {
-		return nil, err
-	}
-	if user == nil {
-		return nil, nil
-	}
-
-	return &gqlmodel.TwirUserTwitchInfo{
-		Login:           user.Login,
-		DisplayName:     user.DisplayName,
-		ProfileImageURL: user.ProfileImageURL,
-		Description:     user.Description,
-	}, nil
+	return data_loader.GetHelixUser(ctx, obj.ID)
 }
 
 // TwirAdminUser returns graph.TwirAdminUserResolver implementation.

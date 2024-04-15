@@ -1,0 +1,116 @@
+extend type Query {
+	integrationsGetData(service: IntegrationService!): IntegrationData @isAuthenticated @hasAccessToSelectedDashboard @hasChannelRolesDashboardPermission(permission: VIEW_INTEGRATIONS)
+	integrationsPostCode(service: IntegrationService!, code: String!): IntegrationData @isAuthenticated @hasAccessToSelectedDashboard @hasChannelRolesDashboardPermission(permission: MANAGE_INTEGRATIONS)
+}
+
+enum IntegrationService {
+	LASTFM
+	VK
+	FACEIT
+	SPOTIFY
+	DONATIONALERTS
+	DISCORD
+	STREAMLABS
+	DONATEPAY
+	DONATELLO
+	VALORANT
+	DONATE_STREAM
+	NIGHTBOT
+}
+
+union IntegrationData = IntegrationDataLastfm | IntegrationDataSevenTv | IntegrationDataVk | IntegrationDataValorant | IntegrationDataStreamLabs | IntegrationDataSpotify | IntegrationDataDonationAlerts | IntegrationDataDiscord | IntegrationDataDonatePay | IntegrationDataFaceit
+
+type IntegrationDataLastfm {
+	username: String
+	avatar: String
+	authLink: String
+}
+
+type IntegrationDataVk {
+	username: String
+	avatar: String
+	authLink: String
+}
+
+type IntegrationDataValorant {
+	username: String
+	authLink: String
+}
+
+type IntegrationDataStreamLabs {
+	username: String
+	avatar: String
+	authLink: String
+}
+
+type IntegrationDataSpotify {
+	username: String
+	avatar: String
+	authLink: String
+}
+
+type IntegrationDataDonationAlerts {
+	username: String
+	avatar: String
+	authLink: String
+}
+
+type IntegrationDataSevenTv {
+	isEditor: Boolean!
+	botSevenTvProfile: IntegrationDataSevenTvProfile!
+	userSevenTvProfile: IntegrationDataSevenTvProfile!
+	emoteSet_id: String!
+	deleteEmotesOnlyAddedByApp: Boolean!
+}
+
+type IntegrationDataSevenTvProfile {
+	id: String!
+	avatar: String!
+	username: String!
+}
+
+type IntegrationDataDiscord {
+	guilds: [IntegrationDataDiscordGuild!]!
+	authLink: String
+}
+
+type IntegrationDataDiscordGuild {
+	id: String!
+	name: String!
+	icon: String!
+	liveNotificationEnabled: Boolean!
+	liveNotificationChannels_ids: [String!]!
+	liveNotificationShow_title: Boolean!
+	liveNotificationShow_category: Boolean!
+	liveNotificationMessage: String!
+	liveNotificationAdditional_twitch_users_ids: [String!]!
+	liveNotificationShowViewers: Boolean!
+	liveNotificationShowPreview: Boolean!
+	liveNotificationShowProfileImage: Boolean!
+	channels: [IntegrationDataDiscordGuildChannel!]!
+	roles: [IntegrationDataDiscordGuildRole!]!
+	offlineNotificationMessage: String!
+	shouldDeleteMessageOnOffline: Boolean!
+	additionalUsersIdsForLiveCheck: [String!]!
+	additionalUsersTwitchProfilesForLiveCheck: [TwirUserTwitchInfo!]!
+}
+
+type IntegrationDataDiscordGuildChannel {
+	id: String!
+	name: String!
+}
+
+type IntegrationDataDiscordGuildRole {
+	id: String!
+	name: String!
+}
+
+type IntegrationDataDonatePay {
+	apiKey: String
+}
+
+type IntegrationDataFaceit {
+	username: String
+	game: String
+	authLink: String
+}

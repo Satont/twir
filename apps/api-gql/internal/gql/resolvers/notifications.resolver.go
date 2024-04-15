@@ -18,24 +18,7 @@ import (
 
 // TwitchProfile is the resolver for the twitchProfile field.
 func (r *adminNotificationResolver) TwitchProfile(ctx context.Context, obj *gqlmodel.AdminNotification) (*gqlmodel.TwirUserTwitchInfo, error) {
-	if obj.UserID == nil {
-		return nil, nil
-	}
-
-	user, err := data_loader.GetHelixUser(ctx, *obj.UserID)
-	if err != nil {
-		return nil, err
-	}
-	if user == nil {
-		return nil, nil
-	}
-
-	return &gqlmodel.TwirUserTwitchInfo{
-		Login:           user.Login,
-		DisplayName:     user.DisplayName,
-		ProfileImageURL: user.ProfileImageURL,
-		Description:     user.Description,
-	}, nil
+	return data_loader.GetHelixUser(ctx, *obj.UserID)
 }
 
 // NotificationsCreate is the resolver for the notificationsCreate field.
@@ -75,20 +58,6 @@ func (r *mutationResolver) NotificationsCreate(ctx context.Context, text string,
 		CreatedAt: entity.CreatedAt,
 	}
 
-	if adminNotification.UserID != nil {
-		twitchUser, err := r.cachedTwitchClient.GetUserById(ctx, *adminNotification.UserID)
-		if err != nil {
-			return nil, err
-		}
-
-		adminNotification.TwitchProfile = &gqlmodel.TwirUserTwitchInfo{
-			Login:           twitchUser.Login,
-			DisplayName:     twitchUser.DisplayName,
-			ProfileImageURL: twitchUser.ProfileImageURL,
-			Description:     twitchUser.Description,
-		}
-	}
-
 	return &adminNotification, nil
 }
 
@@ -121,6 +90,7 @@ func (r *mutationResolver) NotificationsUpdate(ctx context.Context, id string, o
 		}
 
 		notification.TwitchProfile = &gqlmodel.TwirUserTwitchInfo{
+			ID:              twitchUser.ID,
 			Login:           twitchUser.Login,
 			DisplayName:     twitchUser.DisplayName,
 			ProfileImageURL: twitchUser.ProfileImageURL,
@@ -220,40 +190,6 @@ func (r *queryResolver) NotificationsByAdmin(ctx context.Context, opts gqlmodel.
 			CreatedAt: entity.CreatedAt,
 		}
 	}
-
-	// needTwitch := slices.Contains(
-	// 	GetPreloads(ctx),
-	// 	"notifications.twitchProfile",
-	// )
-	// if needTwitch && opts.Type.IsSet() && *opts.Type.Value() == gqlmodel.NotificationTypeUser {
-	// 	usersIdsForRequest := make([]string, len(notifications))
-	// 	for i, notification := range notifications {
-	// 		usersIdsForRequest[i] = *notification.UserID
-	// 	}
-	//
-	// 	twitchUsers, err := r.cachedTwitchClient.GetUsersByIds(ctx, usersIdsForRequest)
-	// 	if err != nil {
-	// 		return nil, err
-	// 	}
-	//
-	// 	for i, notification := range notifications {
-	// 		notificationTwitchUser, ok := lo.Find(
-	// 			twitchUsers, func(item twitchcahe.TwitchUser) bool {
-	// 				return item.ID == *notification.UserID
-	// 			},
-	// 		)
-	// 		if !ok {
-	// 			continue
-	// 		}
-	//
-	// 		notifications[i].TwitchProfile = &gqlmodel.TwirUserTwitchInfo{
-	// 			Login:           notificationTwitchUser.Login,
-	// 			DisplayName:     notificationTwitchUser.DisplayName,
-	// 			ProfileImageURL: notificationTwitchUser.ProfileImageURL,
-	// 			Description:     notificationTwitchUser.Description,
-	// 		}
-	// 	}
-	// }
 
 	return &gqlmodel.AdminNotificationsResponse{
 		Notifications: notifications,

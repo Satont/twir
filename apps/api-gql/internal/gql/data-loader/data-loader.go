@@ -4,7 +4,7 @@ import (
 	"context"
 	"time"
 
-	"github.com/nicklaw5/helix/v2"
+	"github.com/twirapp/twir/apps/api-gql/internal/gql/gqlmodel"
 	"github.com/twirapp/twir/libs/cache/twitch"
 	"github.com/vikstrous/dataloadgen"
 )
@@ -17,7 +17,7 @@ const (
 
 type DataLoader struct {
 	cachedTwitchClient *twitch.CachedTwitchClient
-	helixUserLoader    *dataloadgen.Loader[string, *helix.User]
+	helixUserLoader    *dataloadgen.Loader[string, *gqlmodel.TwirUserTwitchInfo]
 }
 
 type Opts struct {

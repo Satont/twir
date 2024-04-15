@@ -174,6 +174,114 @@ export type GreetingsUpdateInput = {
   userId?: InputMaybe<Scalars['String']['input']>;
 };
 
+export type IntegrationData = IntegrationDataDiscord | IntegrationDataDonationAlerts | IntegrationDataLastfm | IntegrationDataSevenTv | IntegrationDataSpotify | IntegrationDataStreamLabs | IntegrationDataValorant | IntegrationDataVk;
+
+export type IntegrationDataDiscord = {
+  __typename?: 'IntegrationDataDiscord';
+  guilds: Array<IntegrationDataDiscordGuild>;
+};
+
+export type IntegrationDataDiscordGuild = {
+  __typename?: 'IntegrationDataDiscordGuild';
+  additionalUsersIdsForLiveCheck: Array<Scalars['String']['output']>;
+  additionalUsersTwitchProfilesForLiveCheck: Array<TwirUserTwitchInfo>;
+  channels: Array<IntegrationDataDiscordGuildChannel>;
+  icon: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  liveNotificationAdditional_twitch_users_ids: Array<Scalars['String']['output']>;
+  liveNotificationChannels_ids: Array<Scalars['String']['output']>;
+  liveNotificationEnabled: Scalars['Boolean']['output'];
+  liveNotificationMessage: Scalars['String']['output'];
+  liveNotificationShowPreview: Scalars['Boolean']['output'];
+  liveNotificationShowProfileImage: Scalars['Boolean']['output'];
+  liveNotificationShowViewers: Scalars['Boolean']['output'];
+  liveNotificationShow_category: Scalars['Boolean']['output'];
+  liveNotificationShow_title: Scalars['Boolean']['output'];
+  name: Scalars['String']['output'];
+  offlineNotificationMessage: Scalars['String']['output'];
+  roles: Array<IntegrationDataDiscordGuildRole>;
+  shouldDeleteMessageOnOffline: Scalars['Boolean']['output'];
+};
+
+export type IntegrationDataDiscordGuildChannel = {
+  __typename?: 'IntegrationDataDiscordGuildChannel';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type IntegrationDataDiscordGuildRole = {
+  __typename?: 'IntegrationDataDiscordGuildRole';
+  id: Scalars['String']['output'];
+  name: Scalars['String']['output'];
+};
+
+export type IntegrationDataDonationAlerts = {
+  __typename?: 'IntegrationDataDonationAlerts';
+  avatar: Scalars['String']['output'];
+  username: Scalars['String']['output'];
+};
+
+export type IntegrationDataLastfm = {
+  __typename?: 'IntegrationDataLastfm';
+  avatar: Scalars['String']['output'];
+  username: Scalars['String']['output'];
+};
+
+export type IntegrationDataSevenTv = {
+  __typename?: 'IntegrationDataSevenTv';
+  botSevenTvProfile: IntegrationDataSevenTvProfile;
+  deleteEmotesOnlyAddedByApp: Scalars['Boolean']['output'];
+  emoteSet_id: Scalars['String']['output'];
+  isEditor: Scalars['Boolean']['output'];
+  userSevenTvProfile: IntegrationDataSevenTvProfile;
+};
+
+export type IntegrationDataSevenTvProfile = {
+  __typename?: 'IntegrationDataSevenTvProfile';
+  avatar: Scalars['String']['output'];
+  id: Scalars['String']['output'];
+  username: Scalars['String']['output'];
+};
+
+export type IntegrationDataSpotify = {
+  __typename?: 'IntegrationDataSpotify';
+  avatar: Scalars['String']['output'];
+  username: Scalars['String']['output'];
+};
+
+export type IntegrationDataStreamLabs = {
+  __typename?: 'IntegrationDataStreamLabs';
+  avatar: Scalars['String']['output'];
+  username: Scalars['String']['output'];
+};
+
+export type IntegrationDataValorant = {
+  __typename?: 'IntegrationDataValorant';
+  avatar: Scalars['String']['output'];
+  username: Scalars['String']['output'];
+};
+
+export type IntegrationDataVk = {
+  __typename?: 'IntegrationDataVk';
+  avatar: Scalars['String']['output'];
+  username: Scalars['String']['output'];
+};
+
+export enum IntegrationService {
+  Discord = 'DISCORD',
+  Donatello = 'DONATELLO',
+  Donatepay = 'DONATEPAY',
+  DonateStream = 'DONATE_STREAM',
+  Donationalerts = 'DONATIONALERTS',
+  Faceit = 'FACEIT',
+  Lastfm = 'LASTFM',
+  Nightbot = 'NIGHTBOT',
+  Spotify = 'SPOTIFY',
+  Streamlabs = 'STREAMLABS',
+  Valorant = 'VALORANT',
+  Vk = 'VK'
+}
+
 export type Keyword = {
   __typename?: 'Keyword';
   cooldown: Scalars['Int']['output'];
@@ -372,6 +480,8 @@ export type Query = {
   authenticatedUser: AuthenticatedUser;
   commands: Array<Command>;
   greetings: Array<Greeting>;
+  integrationsGetData?: Maybe<IntegrationData>;
+  integrationsGetServiceAuthLink?: Maybe<Scalars['String']['output']>;
   keywords: Array<Keyword>;
   notificationsByAdmin: AdminNotificationsResponse;
   notificationsByUser: Array<UserNotification>;
@@ -380,6 +490,16 @@ export type Query = {
   twirBadges: Array<Badge>;
   /** finding users on twitch with filter does they exists in database */
   twirUsers: TwirUsersResponse;
+};
+
+
+export type QueryIntegrationsGetDataArgs = {
+  service: IntegrationService;
+};
+
+
+export type QueryIntegrationsGetServiceAuthLinkArgs = {
+  service: IntegrationService;
 };
 
 
@@ -476,6 +596,7 @@ export type TwirUserTwitchInfo = {
   __typename?: 'TwirUserTwitchInfo';
   description: Scalars['String']['output'];
   displayName: Scalars['String']['output'];
+  id: Scalars['String']['output'];
   login: Scalars['String']['output'];
   profileImageUrl: Scalars['String']['output'];
 };
