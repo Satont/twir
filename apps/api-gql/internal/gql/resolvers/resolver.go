@@ -13,6 +13,7 @@ import (
 	auditlogs "github.com/satont/twir/libs/pubsub/audit-logs"
 	"github.com/satont/twir/libs/twitch"
 	"github.com/twirapp/twir/apps/api-gql/internal/auth"
+	community_searcher "github.com/twirapp/twir/apps/api-gql/internal/gql/community-searcher"
 	twir_stats "github.com/twirapp/twir/apps/api-gql/internal/gql/twir-stats"
 	"github.com/twirapp/twir/apps/api-gql/internal/wsrouter"
 	bus_core "github.com/twirapp/twir/libs/bus-core"
@@ -28,40 +29,42 @@ import (
 // It serves as dependency injection for your app, add any dependencies you require here.
 
 type Resolver struct {
-	config               config.Config
-	sessions             *auth.Auth
-	gorm                 *gorm.DB
-	twitchClient         *helix.Client
-	cachedTwitchClient   *twitchcahe.CachedTwitchClient
-	cachedCommandsClient *generic_cacher.GenericCacher[[]model.ChannelsCommands]
-	minioClient          *minio.Client
-	twirBus              *bus_core.Bus
-	logger               logger.Logger
-	redis                *redis.Client
-	keywordsCacher       *generic_cacher.GenericCacher[[]model.ChannelsKeywords]
-	tokensClient         tokens.TokensClient
-	wsRouter             wsrouter.WsRouter
-	auditLogsPubSub      auditlogs.PubSub
-	twirStats            *twir_stats.TwirStats
+	config                 config.Config
+	sessions               *auth.Auth
+	gorm                   *gorm.DB
+	twitchClient           *helix.Client
+	cachedTwitchClient     *twitchcahe.CachedTwitchClient
+	cachedCommandsClient   *generic_cacher.GenericCacher[[]model.ChannelsCommands]
+	minioClient            *minio.Client
+	twirBus                *bus_core.Bus
+	logger                 logger.Logger
+	redis                  *redis.Client
+	keywordsCacher         *generic_cacher.GenericCacher[[]model.ChannelsKeywords]
+	tokensClient           tokens.TokensClient
+	wsRouter               wsrouter.WsRouter
+	auditLogsPubSub        auditlogs.PubSub
+	twirStats              *twir_stats.TwirStats
+	communityUsersSearcher *community_searcher.CommunitySearcher
 }
 
 type Opts struct {
 	fx.In
 
-	Sessions             *auth.Auth
-	Gorm                 *gorm.DB
-	Config               config.Config
-	TokensGrpc           tokens.TokensClient
-	CachedTwitchClient   *twitchcahe.CachedTwitchClient
-	CachedCommandsClient *generic_cacher.GenericCacher[[]model.ChannelsCommands]
-	Minio                *minio.Client
-	TwirBus              *bus_core.Bus
-	Logger               logger.Logger
-	Redis                *redis.Client
-	KeywordsCacher       *generic_cacher.GenericCacher[[]model.ChannelsKeywords]
-	WsRouter             wsrouter.WsRouter
-	AuditLogsPubSub      auditlogs.PubSub
-	TwirStats            *twir_stats.TwirStats
+	Sessions               *auth.Auth
+	Gorm                   *gorm.DB
+	Config                 config.Config
+	TokensGrpc             tokens.TokensClient
+	CachedTwitchClient     *twitchcahe.CachedTwitchClient
+	CachedCommandsClient   *generic_cacher.GenericCacher[[]model.ChannelsCommands]
+	Minio                  *minio.Client
+	TwirBus                *bus_core.Bus
+	Logger                 logger.Logger
+	Redis                  *redis.Client
+	KeywordsCacher         *generic_cacher.GenericCacher[[]model.ChannelsKeywords]
+	WsRouter               wsrouter.WsRouter
+	AuditLogsPubSub        auditlogs.PubSub
+	TwirStats              *twir_stats.TwirStats
+	CommunityUsersSearcher *community_searcher.CommunitySearcher
 }
 
 func New(opts Opts) (*Resolver, error) {
@@ -86,6 +89,7 @@ func New(opts Opts) (*Resolver, error) {
 		wsRouter:             opts.WsRouter,
 		auditLogsPubSub:      opts.AuditLogsPubSub,
 		twirStats:            opts.TwirStats,
+		communityUsersSearcher: opts.CommunityUsersSearcher,
 	}, nil
 }
 
@@ -107,7 +111,11 @@ func GetNestedPreloads(
 		preloads = append(preloads, prefixColumn)
 		preloads = append(
 			preloads,
-			GetNestedPreloads(ctx, graphql.CollectFields(ctx, column.Selections, nil), prefixColumn)...,
+			GetNestedPreloads(
+				ctx,
+				graphql.CollectFields(ctx, column.Selections, nil),
+				prefixColumn,
+			)...,
 		)
 	}
 	return

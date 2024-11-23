@@ -14,6 +14,7 @@ import (
 	helix "github.com/nicklaw5/helix/v2"
 	"github.com/samber/lo"
 	model "github.com/satont/twir/libs/gomodels"
+	community_searcher "github.com/twirapp/twir/apps/api-gql/internal/gql/community-searcher"
 	data_loader "github.com/twirapp/twir/apps/api-gql/internal/gql/data-loader"
 	"github.com/twirapp/twir/apps/api-gql/internal/gql/gqlmodel"
 	"github.com/twirapp/twir/apps/api-gql/internal/gql/graph"
@@ -100,6 +101,9 @@ func (r *queryResolver) CommunityUsers(ctx context.Context, opts gqlmodel.Commun
 		return nil, err
 	}
 
+	var foundTwitchChannels []helix.Channel
+	var searchQuery *community_searcher.ParsedSearchQuery
+
 	queryBuilder := squirrel.StatementBuilder.PlaceholderFormat(squirrel.Dollar).
 		Select(`users_stats.*, COUNT("channels_emotes_usages"."id") AS "emotes"`).
 		From("users_stats").
@@ -116,14 +120,26 @@ func (r *queryResolver) CommunityUsers(ctx context.Context, opts gqlmodel.Commun
 		Offset(uint64(page * perPage)).
 		GroupBy(`"users_stats"."id"`)
 
-	var foundTwitchChannels []helix.Channel
-	if opts.Search.IsSet() {
-		channels, err := r.cachedTwitchClient.SearchChannels(ctx, *opts.Search.Value())
+	if opts.Search.IsSet() && opts.Search.Value() != nil {
+		searchValue := *opts.Search.Value()
+		searchQuery, err = r.communityUsersSearcher.ParseSearchQuery(searchValue)
 		if err != nil {
 			return nil, err
 		}
 
+		channels, err := r.cachedTwitchClient.SearchChannels(ctx, searchQuery.Username)
+		if err != nil {
+			r.logger.Error("Cannot search for username", slog.Any("err", err))
+			return nil, err
+		}
+
 		foundTwitchChannels = channels
+	}
+
+	if searchQuery != nil {
+		for _, condition := range searchQuery.Conditions {
+			queryBuilder = queryBuilder.Where(fmt.Sprintf("users_stats.%s %s %v", condition.Field, condition.Operator, condition.Value))
+		}
 	}
 
 	if len(foundTwitchChannels) > 0 {
@@ -251,3 +267,5 @@ func (r *queryResolver) CommunityUsers(ctx context.Context, opts gqlmodel.Commun
 func (r *Resolver) CommunityUser() graph.CommunityUserResolver { return &communityUserResolver{r} }
 
 type communityUserResolver struct{ *Resolver }
+
+

@@ -4,6 +4,7 @@ import (
 	cfg "github.com/satont/twir/libs/config"
 	"github.com/twirapp/twir/apps/api-gql/internal/auth"
 	"github.com/twirapp/twir/apps/api-gql/internal/gql"
+	community_searcher "github.com/twirapp/twir/apps/api-gql/internal/gql/community-searcher"
 	"github.com/twirapp/twir/apps/api-gql/internal/gql/directives"
 	"github.com/twirapp/twir/apps/api-gql/internal/gql/resolvers"
 	twir_stats "github.com/twirapp/twir/apps/api-gql/internal/gql/twir-stats"
@@ -51,6 +52,7 @@ func main() {
 			directives.New,
 			httpserver.New,
 			gql.New,
+			community_searcher.NewCommunitySearcher,
 		),
 		fx.Invoke(
 			pubclicroutes.New,
