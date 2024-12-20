@@ -1,12 +1,12 @@
-import { useLocalStorage } from '@vueuse/core'
+import { createGlobalState, useLocalStorage } from '@vueuse/core'
 
 import type { LayoutItem } from 'grid-layout-plus'
 
-const version = '9'
+const version = '10'
 
 export type WidgetItem = LayoutItem & { visible: boolean }
 
-export function useWidgets() {
+export const useWidgets = createGlobalState(() => {
 	return useLocalStorage<WidgetItem[]>(`twirWidgetsPositions-v${version}`, [
 		{
 			x: 6,
@@ -49,4 +49,4 @@ export function useWidgets() {
 			visible: true,
 		},
 	])
-}
+})

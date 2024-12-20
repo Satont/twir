@@ -8,6 +8,7 @@ type TwirUserTwitchInfo {
 	login: String!
 	displayName: String!
 	profileImageUrl: String!
+	offlineImageUrl: String!
 	description: String!
 	notFound: Boolean!
 }

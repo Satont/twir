@@ -5,7 +5,7 @@ import { computed } from 'vue'
 
 import { protectedApiClient } from './twirp'
 
-import type { DashboardEventsSubscription } from '@/gql/graphql'
+import type { DashboardEventsSubscription, DashboardStats } from '@/gql/graphql'
 
 import { graphql } from '@/gql'
 
@@ -109,8 +109,8 @@ export function useRealtimeDashboardStats() {
 		`),
 	})
 
-	const stats = computed(() => {
-		return data.value?.dashboardStats
+	const stats = computed<DashboardStats>(() => {
+		return data.value?.dashboardStats ?? {}
 	})
 
 	return { stats, isPaused, fetching }

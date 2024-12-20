@@ -8,11 +8,10 @@ import AuditLogs from '@/components/dashboard/audit-logs.vue'
 import BotStatus from '@/components/dashboard/bot-status.vue'
 import Chat from '@/components/dashboard/chat.vue'
 import Events from '@/components/dashboard/events.vue'
-import Stream from '@/components/dashboard/stream.vue'
 import { useWidgets } from '@/components/dashboard/widgets.js'
 import { Button } from '@/components/ui/button'
 import { useIsMobile } from '@/composables/use-is-mobile'
-import Stats from '@/layout/stats/stats.vue'
+import Stream from '@/features/dashboard/widgets/stream.vue'
 
 const { isMobile } = useIsMobile()
 const widgets = useWidgets()
@@ -58,7 +57,6 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-	<Stats />
 	<BotStatus />
 	<div class="w-full h-full pl-1">
 		<GridLayout

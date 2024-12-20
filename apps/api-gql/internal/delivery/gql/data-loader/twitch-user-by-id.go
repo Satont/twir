@@ -49,6 +49,7 @@ func (c *DataLoader) getHelixUsersByIds(ctx context.Context, ids []string) (
 				Login:           user.Login,
 				DisplayName:     user.DisplayName,
 				ProfileImageURL: user.ProfileImageURL,
+				OfflineImageURL: user.OfflineImageURL,
 				Description:     user.Description,
 			},
 		)

@@ -27,6 +27,11 @@ export function newRouter() {
 					component: () => import('../components/dashboard/audit-logs.vue'),
 					props: { popup: true },
 				},
+				{
+					path: '/dashboard/popup/widgets/stream',
+					component: () => import('@/features/dashboard/widgets/stream.vue'),
+					props: { popup: true },
+				},
 			],
 		},
 		{

@@ -7,14 +7,21 @@ import {
 	darkTheme,
 	lightTheme,
 } from 'naive-ui'
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 
 import { Toaster as Sonner } from '@/components/ui/sonner'
 import { Toaster } from '@/components/ui/toast'
 import { useTheme } from '@/composables/use-theme'
+import { useIsPopup } from '@/popup-layout/use-is-popup'
 
 const { theme } = useTheme()
 const themeStyles = computed(() => theme.value === 'dark' ? darkTheme : lightTheme)
+
+const { setIsPopup } = useIsPopup()
+
+onMounted(() => {
+	setIsPopup(true)
+})
 </script>
 
 <template>

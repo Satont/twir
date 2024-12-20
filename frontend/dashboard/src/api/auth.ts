@@ -30,6 +30,7 @@ export const profileQuery = createRequest(graphql(`
 				login
 				displayName
 				profileImageUrl
+				offlineImageUrl
 			}
 			availableDashboards {
 				id
