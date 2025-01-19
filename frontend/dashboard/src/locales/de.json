@@ -20,7 +20,8 @@
     "send": "Senden",
     "next": "Nächste",
     "previous": "Vorherige",
-    "reset": "Zurücksetzen"
+    "reset": "Zurücksetzen",
+    "popout": "Popout in neuem Fenster öffnen"
   },
   "sharedTexts": {
     "saved": "Erfolgreich gespeichert",
@@ -47,16 +48,19 @@
     "paginationPerPage": "Pro Seite",
     "searchPlaceholder": "Suche...",
     "messages": "Nachrichten",
-    "asc": "Asc",
-    "desc": "Desc",
+    "asc": "Aufstieg",
+    "desc": "Absteigend",
     "hide": "Ausblenden",
     "view": "Anzeigen",
-    "toggleColumns": "Toggle columns",
+    "toggleColumns": "Spalten umschalten",
     "copied": "Kopiert",
-    "userSelected": "{count} users selected",
-    "userSelectPlaceholder": "Wähle einen Benutzer | Wähle mehrere Benutzer",
+    "userSelected": "{count} Benutzer ausgewählt",
+    "userSelectPlaceholder": "Wähle einen Benutzer|Wähle mehrere Benutzer",
     "userNotFound": "Keine Benutzer gefunden",
-    "settings": "Einstellungen"
+    "settings": "Einstellungen",
+    "create": "Erstelle",
+    "edit": "Bearbeite",
+    "noData": "Keine Daten verfügbar"
   },
   "sidebar": {
     "dashboard": "Übersicht",
@@ -80,13 +84,15 @@
     "games": "Spiele",
     "users": "Benutzer",
     "moderation": "Moderation",
-    "import": "Importieren",
-    "community": "Community"
-  },
-  "navbar": {
-    "logout": "Abmelden",
     "publicPage": "Öffentliche Seite",
-    "seeAll": "Alles anzeigen"
+    "import": "Importieren",
+    "community": "Community",
+    "logout": "Ausloggen",
+    "loggedAs": "Eingeloggt als",
+    "lang": "Sprache",
+    "darkTheme": "Dunkles Design",
+    "lightTheme": "Helles Design",
+    "notifications": "Benachrichtigungen"
   },
   "deleteConfirmation": {
     "text": "Bist du sicher, dass du das löschen möchtest?",
@@ -126,10 +132,19 @@
         }
       },
       "aliases": {
-        "label": "Aliase"
+        "label": "Zusatznamen"
       },
       "gameCategories": {
         "label": "Aktiviere Befehl nur in bestimmten Kategorien (leer lassen für Deaktivierung)"
+      },
+      "expiration": {
+        "label": "Ablauf",
+        "actionsLabel": "Aktion nach Ablauf",
+        "defaultWarning": "Ablaufdatum kann nicht für Standardbefehle gesetzt werden",
+        "actions": {
+          "delete": "Befehl wird gelöscht",
+          "disable": "Befehl wird deaktiviert"
+        }
       },
       "description": {
         "label": "Befehlsbeschreibung"
@@ -148,7 +163,9 @@
         "name": "Rollen",
         "placeholder": "Wählen Sie Rollen aus, um Berechtigungen zur Verwendung von Befehlen zu gewähren",
         "deniedUsers": "Benutzer, die diesen Befehl nicht verwenden können.",
-        "allowedUsers": "Benutzer, die die Rollenbeschränkung für diesen Befehl umgehen können."
+        "allowedUsers": "Benutzer, die die Rollenbeschränkung für diesen Befehl umgehen können.",
+        "exceptions": "Ausnahmen",
+        "blocked": "Blockierte Nutzer"
       },
       "restrictions": {
         "name": "Einschränkungen nach Statistiken",
@@ -230,6 +247,45 @@
       },
       "bot": {
         "title": "Bot-Verwaltung"
+      },
+      "audit-logs": {
+        "title": "Audit-Logs",
+        "search-label": "Suche nach",
+        "search": {
+          "channel": "Kanal",
+          "actor": "Akteur"
+        },
+        "operation-type-label": "Operationstyp",
+        "operation-type": {
+          "create": "Erstellt",
+          "delete": "Gelöscht",
+          "update": "Bearbeitet"
+        },
+        "systems-label": "Systeme",
+        "systems": {
+          "badge": "Badge",
+          "badge-user": "Benutzer Abzeichen",
+          "channel-command": "Befehl",
+          "channel-command-group": "Befehlsgruppe",
+          "channel-variable": "Variabel",
+          "channel-games-eight-ball": "8ball",
+          "channel-games-duel": "Duell",
+          "channel-games-russian-roulette": "Russisches Roulette",
+          "channel-games-seppuku": "Seppuku",
+          "channel-games-voteban": "Voteban",
+          "channel-greeting": "Begrüßung",
+          "channel-keyword": "Schlüsselwort",
+          "channel-moderation-setting": "Moderations-Einstellung",
+          "channel-overlay-chat": "Chat Overlay",
+          "channel-overlay-dudes": "Dudes Overlay",
+          "channel-overlay-now-playing": "Now Playing Overlay",
+          "channel-roles": "Rolle",
+          "channel-timers": "Timer",
+          "channel-song-requests": "Song Requests",
+          "channel-integrations": "Integration",
+          "channel-alerts": "Alert",
+          "channel-chat-alerts": "Chat Alerts"
+        }
       }
     }
   },
@@ -545,7 +601,7 @@
             "example": "!brbstop"
           },
           "text": "Overlay-Text",
-          "background": "",
+          "background": "Overlay-Hintergrund",
           "backgroundOpacity": "Deckkraft des Overlay-Hintergrunds",
           "font": {
             "color": "Schriftfarbe",
@@ -556,7 +612,7 @@
         "late": {
           "label": "Post-Timer Einstellungen",
           "text": "Overlay Post-Timer Text",
-          "displayBrb": "Display Countdown Information"
+          "displayBrb": "Countdown-Informationen anzeigen"
         }
       },
       "preview": {
@@ -566,10 +622,10 @@
     }
   },
   "songRequests": {
-    "waiting": "Awaiting a Song Request...",
+    "waiting": "Warte auf eine Songanfrage...",
     "player": {
       "title": "Aktueller Song",
-      "noAccess": "Seems, that you are not able to listen songs there... Go to your own dashboard Song Requests to access the player."
+      "noAccess": "Anscheinend kannst du dort keine Songs anhören... Gehe zu deinem eigenen Dashboard „Song-Anfragen“, um auf den Player zuzugreifen."
     },
     "table": {
       "title": "Warteschlange",
@@ -582,19 +638,19 @@
     },
     "settings": {
       "onlineOnly": "Liedanfragen während des Streamens erlauben?",
-      "announcePlay": "Announce Current Song into Chat?",
-      "playerNoCookieMode": "Incognito mode for player",
-      "playerNoCookieModeDescription": "Enabling this option will allow you to listen to songs without cookies and viewing history. Need refresh page after enabling.",
-      "neededPercentageForskip": "User Skip Percentage",
-      "channelReward": "Channel Points Reward Request Trigger",
-      "deniedChannels": "Banned YouTube Channels List (from requesting songs)",
-      "deniedWords": "Banned Word List (affects both titles and YouTube channel names)",
+      "announcePlay": "Aktuellen Song im Chat ankündigen?",
+      "playerNoCookieMode": "Inkognito-Modus für Spieler",
+      "playerNoCookieModeDescription": "Wenn Sie diese Option aktivieren, kannst du Songs ohne Cookies anhören und den Verlauf anzeigen. Nach der Aktivierung muss die Seite aktualisiert werden.",
+      "neededPercentageForskip": "Prozentsatz der übersprungenen Benutzer",
+      "channelReward": "Auslöser für Kanalpunkte-Belohnungen",
+      "deniedChannels": "Liste gesperrter YouTube-Kanäle (vom Anfordern von Songs)",
+      "deniedWords": "Liste verbotener Wörter (betrifft sowohl Titel, als auch YouTube-Kanalnamen)",
       "deniedUsers": "Gesperrter Benutzer",
       "deniedSongs": "Gesperrte Songliste",
-      "takeSongFromDonationMessage": "Attempt to get song links from donation messages?",
-      "confirmClearQueue": "Are you sure you want to clear the queue?",
+      "takeSongFromDonationMessage": "Versuche Song-Links aus Donation-Nachrichten zu erhalten?",
+      "confirmClearQueue": "Bist du sicher, dass du die Warteschlange löschen möchtest?",
       "users": {
-        "maxRequests": "Maximum Request Per-User Amount",
+        "maxRequests": "Maximaler Anforderungsbetrag pro Benutzer",
         "minimalWatchTime": "Minimale Zuschauzeit (in Minuten)",
         "minimalMessages": "Minimale Nachrichtenanzahl",
         "minimalFollowTime": "Minimale Folgezeit (in Minuten)"
@@ -622,26 +678,26 @@
   "timers": {
     "table": {
       "columns": {
-        "intervalInMinutes": "Intervall (in Minuten)",
-        "intervalInMessages": "Intervall (in Chat-Nachrichten, auf 0 stellen zur Deaktivierung)"
+        "intervalInMinutes": "Intervall in Minuten",
+        "intervalInMessages": "Chatzeilen-Intervall"
       }
     },
     "modal": {
-      "timelineDescription": "Each response will be sent once both interval conditions is met.",
+      "timelineDescription": "Jede Antwort wird gesendet, sobald beide Intervallbedingungen erfüllt sind.",
       "validations": {
-        "nameLong": "Timer Name is too long!",
-        "nameRequired": "Timer Name is required!",
-        "responseRequired": "Response Text is required!",
-        "responseLong": "Response is too long!"
+        "nameLong": "Timer Name ist zu lang!",
+        "nameRequired": "Timer Name ist erforderlich!",
+        "responseRequired": "Antworttext ist erforderlich!",
+        "responseLong": "Antwort ist zu lang!"
       }
     },
-    "limitExceeded": "Timer Limit exceeded!",
-    "newTimer": "New timer"
+    "limitExceeded": "Timer-Limit überschritten!",
+    "newTimer": "Neuer Timer"
   },
   "roles": {
     "modal": {
-      "accessToUsers": "Permitted Users",
-      "accessByStats": "Permitted Users (by stats)",
+      "accessToUsers": "Zulässige Benutzer",
+      "accessByStats": "Zulässige Benutzer (nach Statistiken)",
       "requiredWatchTime": "Erforderliche Beobachtungszeit",
       "requiredMessages": "Benötigte Nachrichtenanzahl",
       "requiredChannelPoints": "Benötigte Kanalpunkte",
@@ -654,9 +710,9 @@
   "keywords": {
     "title": "Schlagwörter",
     "info": {
-      "text": "Keywords helps you to trigger chat message on certain words matching."
+      "text": "Mithilfe von Schlüsselwörtern kannst du bei bestimmten passenden Wörtern eine Chat-Nachricht auslösen."
     },
-    "create": "Create keyword",
+    "create": "Schlüsselwort erstellen",
     "triggerText": "Auslösetext",
     "usages": "Anzahl der Verwendungen",
     "isRegular": "Ist ein regulärer Ausdruck?",
@@ -681,8 +737,8 @@
   },
   "greetings": {
     "title": "Begrüßung",
-    "create": "Create greeting",
-    "edit": "Edit greeting",
+    "create": "Begrüßung erstellen",
+    "edit": "Begrüßung bearbeiten",
     "info": {
       "title": "Grüßinformationen",
       "text": "Grüße sind eine Art von Nachrichten, die Bot verwendet, um bekannte Stream-Zuschauer willkommen zu heißen, wenn sie ihre erste Nachricht im Chat auf jedem Stream senden. Wenn Sie jeden Benutzer im Chat begrüßen möchten, dann können Sie sich die Veranstaltungskategorie ansehen, anstatt Grüße."
@@ -696,10 +752,10 @@
     "title": "Warnungen",
     "info": "Warnungsinformationen",
     "overlayLabel": "Warnungen sind ein grafischer Teil der Befehls- oder Ereignis-Implementierung. Sie können eine Benachrichtigung mit spezifiziertem Audio, Bild und Text konfigurieren und sie dann einem bestimmten Befehl, Event, Schlüsselwort oder Gruß zuordnen. Vergessen Sie auch nicht, Overlay-URL als Browserquelle in Ihre Streaming-Software einzufügen! (z. B. OBS, XSplit, etc.)",
-    "copyOverlayLink": "Copy overlay link",
+    "copyOverlayLink": "Overlay-Link kopieren",
     "name": "Name",
-    "rewards": "Rewards",
-    "commands": "Commands",
+    "rewards": "Belohnungen",
+    "commands": "Befehle",
     "validations": {
       "name": "Der Name darf nicht leer oder länger als 30 Zeichen sein!"
     },
@@ -710,14 +766,14 @@
       "greetings": "Grußauslöser"
     },
     "select": {
-      "audio": "Confugure an audio",
-      "image": "Configure an image",
-      "text": "Configure text"
+      "audio": "Konfugiere eine Audio",
+      "image": "Konfiguriere ein Bild",
+      "text": "Konfiguriere einen Text"
     },
-    "audioVolume": "Audio volume",
-    "createAlert": "Create alert",
-    "editAlert": "Edit alert",
-    "tableEmpty": "No alerts found"
+    "audioVolume": "Audiolautstärke",
+    "createAlert": "Erstelle einen Alert",
+    "editAlert": "Alert bearbeiten",
+    "tableEmpty": "Keine Alerts gefunden"
   },
   "games": {
     "command": "Befehl",
@@ -730,18 +786,18 @@
       "canBeUsedByModerator": "Timeout Moderatoren? *Moderatorenrechte werden nach dem Timeout wieder gewährt.",
       "timeoutSeconds": "Timeout-Zeit (in Sekunden, setzen Sie es auf 0, um ein Timeout zu deaktivieren)",
       "decisionSeconds": "Verzögerung (in Sek.)",
-      "initMessage": "Trigger Pull Announcement (Game Start Message)",
-      "surviveMessage": "User Survived Message",
-      "deathMessage": "User Lost Message",
-      "chargedBullets": "Charged Bullets Amount: {tumberSize}",
-      "tumberSize": "Revolver Сylinder's Size"
+      "initMessage": "Trigger Pull Ankündigung (Game Start Nachricht)",
+      "surviveMessage": "Benutzer hat die Nachricht überlebt",
+      "deathMessage": "Nachricht des Benutzers verloren",
+      "chargedBullets": "Menge aufgeladener Kugeln: {tumberSize}",
+      "tumberSize": "Größe der Revolvertrommel"
     },
     "duel": {
       "title": "Duelle",
-      "description": "A simple chat game between two users allowing to test their dodge skills!",
+      "description": "Ein einfaches Chat-Spiel zwischen zwei Benutzern, bei dem Sie Ihre Ausweichfähigkeiten testen können!",
       "commands": {
         "title": "Duellbefehle",
-        "duel": "Ask for a Duel",
+        "duel": "Frage nach einem Duell",
         "accept": "Duell akzeptieren",
         "stats": "Statistiken"
       },
@@ -792,9 +848,9 @@
       "banDuration": "Dauer des Banns",
       "voteMode": "Modus der Abstimmung",
       "voteDuration": "Dauer der Abstimmung in Sekunden",
-      "wordsNegative": "Words for vote to \"no\" option",
-      "wordsPositive": "Words for vote to \"yes\" option",
-      "timeoutModerators": "Aktiviere voteban gegen Moderatoren"
+      "wordsNegative": "Wörter für die Abstimmung mit der Option „Nein“",
+      "wordsPositive": "Wörter für die Abstimmung mit der Option „Ja“",
+      "timeoutModerators": "Aktiviere Voteban gegen Moderatoren"
     }
   },
   "community": {
@@ -824,7 +880,7 @@
         "usages": "Gesamtnutzung",
         "users": "Benutzer",
         "empty": "Keine Emotes",
-        "chart": "Usages chart",
+        "chart": "Verwendungsdiagramm",
         "lastDay": "Tag",
         "lastWeek": "Woche",
         "lastMonth": "Monat",
@@ -858,90 +914,90 @@
     "name": "Overlay Name",
     "createNewLayer": "Neue Ebene erstellen",
     "validations": {
-      "name": "Overlay Name cannot be empty and longer than 30 symbols!",
-      "layers": "Layers cannot be empty! This overlay cannot contain more than 15 layers."
+      "name": "Overlay Name darf nicht leer sein und muss länger als 30 Zeichen sein!",
+      "layers": "Ebenen dürfen nicht leer sein! Dieses Overlay darf nicht mehr als 15 Ebenen enthalten."
     },
     "html": {
-      "description": "Allows you to use custom HTML, CSS and bot variables.",
-      "updateInterval": "HTML Variables Update Interval",
+      "description": "Erlaubt dir benutzerdefinierte HTML-, CSS- und Bot-Variablen zu verwenden.",
+      "updateInterval": "Aktualisierungsintervall für HTML-Variablen",
       "variablesAlert": {
-        "title": "You can use bot variables in HTML, click on the list below to show available options.",
-        "selectToCopy": "Select a required variable. It will be automatically copied to the clipboard."
+        "title": "Du kannst Bot-Variablen in HTML verwenden, klicke auf die Liste unten, um verfügbare Optionen anzuzeigen.",
+        "selectToCopy": "Wähle eine erforderliche Variable aus. Sie wird automatisch in die Zwischenablage kopiert."
       },
-      "periodicallyRefetchData": "Periodically parse and update HTML data from server?"
+      "periodicallyRefetchData": "HTML-Daten vom Server regelmäßig analysieren und aktualisieren?"
     }
   },
   "chatAlerts": {
-    "randomedMessage": "If there are several variants of the chat alerts, then they will be picked randomly.<br>",
-    "randomMessageWithCount": "If there will be several variants with the same counter number, then they will be picked randomly.<br>",
-    "replacedInfo": "Available Variables: {vars}. They will be replaced with the actual information in the alert.<br>",
-    "cooldown": "Message Cooldown (in seconds)",
+    "randomedMessage": "Wenn es mehrere Varianten der Chat Alerts gibt, wird zufällig ausgewählt.<br>",
+    "randomMessageWithCount": "Wenn es mehrere Varianten mit der gleichen Zählernummer gibt, wird zufällig ausgewählt.<br>",
+    "replacedInfo": "Verfügbare Variablen: {vars}. Sie werden durch die tatsächlichen Informationen im Alert ersetzt.<br>",
+    "cooldown": "Nachrichten Cooldown (in Sekunden)",
     "ban": {
-      "alertInfo": "Set time to 0 to print a message when the user is permanently banned.<br>",
-      "countLabel": "Time (in minutes)",
-      "ignoreTimeoutFrom": "Ignore timeouts from"
+      "alertInfo": "Setze die Zeit auf 0, um eine Nachricht zu drucken, wenn der Benutzer permanent gesperrt ist.<br>",
+      "countLabel": "Zeit (in Minuten)",
+      "ignoreTimeoutFrom": "Ignoriere Timeouts von"
     },
     "labels": {
-      "followers": "Followers",
+      "followers": "Follower",
       "raids": "Raids",
       "donations": "Spenden",
-      "subscriptions": "Subscriptions",
+      "subscriptions": "Abonnements",
       "rewards": "Belohnungen",
-      "firstUserMessage": "First User Message",
+      "firstUserMessage": "Erste Nachricht des Benutzers",
       "streamOnline": "Stream Online",
       "streamOffline": "Stream Offline",
-      "chatCleared": "Chat Clear",
+      "chatCleared": "Chat leeren",
       "userBanned": "Benutzer-Sperren",
-      "channelUnbanRequestCreate": "Unban Request Create",
-      "channelUnbanRequestResolve": "Unban Request Resolve",
-      "messageDelete": "Message Deleted"
+      "channelUnbanRequestCreate": "Erstelle einen Entbannungsantrag",
+      "channelUnbanRequestResolve": "Entbannungsantrag auflösen",
+      "messageDelete": "Nachricht gelöscht"
     }
   },
   "moderation": {
-    "createNewRule": "Create a New Moderation Rule",
-    "banTime": "Timeout Time",
-    "banDescription": "Set to 0 for ban permamently.",
-    "banMessage": "Timeout Message",
+    "createNewRule": "Erstelle eine neue Moderations-Regel",
+    "banTime": "Timeout Zeit",
+    "banDescription": "Auf 0 gesetzt für permanenten Bann.",
+    "banMessage": "Timeout Nachricht",
     "warningMessage": "Warnmeldung",
-    "warningMaxCount": "Warning Maximum Count",
-    "excludedRoles": "Select roles which won't be impacted by this filter:",
+    "warningMaxCount": "Warnung Maximale Anzahl",
+    "excludedRoles": "Wähle Rollen aus, die von diesem Filter nicht beeinflusst werden:",
     "types": {
       "links": {
         "name": "Links",
-        "description": "Scans Twitch chat for any web links or URLs and promptly removes them to prevent spam or unsafe content from being sent into chat."
+        "description": "Scannt Twitch-Chat nach Weblinks oder URLs und entfernt diese sofort, um zu verhindern, dass Spam oder unsichere Inhalte in den Chat geschickt werden."
       },
       "deny_list": {
-        "name": "Disallowed Words List",
-        "description": "Helps to maintain clean chat by filtering out words or phrases specified in a predefined list, preventing them from being displayed.",
-        "empty": "List of disallowed words is empty! You can add one there.",
-        "regexp": "If you are an advanced user, Disallowed Words List also support regular expressions. Regular Expression should be written in golang format! See {0} here.",
-        "regexpCheatSheet": "cheat sheet"
+        "name": "Nicht erlaubte Wörterliste",
+        "description": "Hilft beim Erhalt eines sauberen Chats, indem man Wörter oder Phrasen aus einer vordefinierten Liste herausfiltert und verhindert, dass sie angezeigt werden.",
+        "empty": "Liste der nicht erlaubten Wörter ist leer! Du kannst dort welche hinzufügen.",
+        "regexp": "Wenn du ein fortgeschrittener Benutzer bist, unterstützt die Liste nicht erlaubter Wörter auch reguläre Ausdrücke. Reguläre Ausdrücke sollten im golang-Format geschrieben werden! Siehe {0} hier.",
+        "regexpCheatSheet": "Spickzettel"
       },
       "symbols": {
         "name": "Symbole",
-        "description": "Identifies and restricts excessive use of symbols, preventing clutter, chaos and maintaining readability in the chat.",
-        "triggerLength": "Minimal Message Length",
-        "maxPercentage": "Maximum Symbols Percentage"
+        "description": "Identifiziert und beschränkt den übermäßigen Gebrauch von Symbolen, verhindert Unklarheiten, Chaos und hält die Lesbarkeit im Chat aufrecht.",
+        "triggerLength": "Minimale Nachrichtenlänge",
+        "maxPercentage": "Maximaler Prozentsatz der Symbole"
       },
       "long_message": {
         "name": "Nachrichtenlänge",
-        "description": "Identifies and restricts long messages by limiting the length of messages sent into chat.",
+        "description": "Identifiziert und beschränkt lange Nachrichten, indem die Länge der Nachrichten im Chat begrenzt wird.",
         "triggerLength": "Maximale Nachrichtenlänge"
       },
       "caps": {
         "name": "Großbuchstaben",
-        "description": "Identifies and restricts excessive use of capital letters, promoting a more balanced and respectful conversation in the chat.",
-        "maxPercentage": "Maximum Capital Letters Percentage",
+        "description": "Identifiziert und beschränkt übermäßige Verwendung von Großbuchstaben und fördert ein ausgewogeneres und respektvolleres Gespräch im Chat.",
+        "maxPercentage": "Maximaler Prozentsatz der Großbuchstaben",
         "triggerLength": "Minimale Nachrichtenlänge"
       },
       "emotes": {
         "name": "Emotes",
-        "description": "Detects the frequency and amount of emoticons used in messages, avoiding overuse and spam of them.",
+        "description": "Erkennt die Häufigkeit und die Menge der Emoticons, die in Nachrichten verwendet werden, um Überlastung und Spam zu vermeiden.",
         "triggerLength": "Maximales Emote Nutzungslimit"
       },
       "language": {
         "name": "Sprache",
-        "description": "Scans and filters out inappropriate languages.",
+        "description": "Scannt und filtert unangemessene Sprachen heraus.",
         "allowedLanguages": "Liste der erlaubten Sprachen",
         "disallowedLanguages": "Liste der nicht erlaubten Sprachen"
       }
@@ -960,10 +1016,10 @@
     "title": "Benutzereinstellungen",
     "account": {
       "title": "Account",
-      "showMeOnLanding": "Show yourself on the Landing Page?",
+      "showMeOnLanding": "Lasse dich auf der Start-Seite zeigen?",
       "regenerateApiKey": {
         "button": "Privaten API Schlüssel neu generieren",
-        "info": "This key is used for all overlays links. When you regenerate it, you need to check all your overlays in your streaming software and replace URLs with the new links."
+        "info": "Dieser Schlüssel wird für alle Overlay-Links verwendet. Wenn du es neu generierst, musst du alle deiner Overlays in deiner Streaming-Software überprüfen und URLs durch die neuen Links ersetzen."
       }
     },
     "public": {
@@ -1031,20 +1087,23 @@
         "title": "EventSub abonnieren",
         "condition": "Bedingung",
         "type": "Typ",
-        "typeError": "Geben Sie einen Typ an",
+        "typeError": "Gebe einen Typ an",
         "version": "Version",
         "user": "Benutzer",
         "channel": "Kanal",
-        "channelWithBotId": "Channel with bot ID",
-        "channelWithModeratorId": "Channel with moderator ID"
+        "channelWithBotId": "Kanal mit Bot-ID",
+        "channelWithModeratorId": "Kanal mit Moderator-ID"
       },
       "dangerZone": {
-        "title": "Danger Zone",
-        "revoke": "Revoke",
-        "revokeSessions": "Revoke sessions",
-        "revokeAllSessionsDescription": "All user sessions will be revoked",
-        "revokeAllSessionsConfirm": "Are you sure you want to revoke all sessions?"
+        "title": "Gefahrenzone",
+        "revoke": "Widerrufen",
+        "revokeSessions": "Sitzungen widerrufen",
+        "revokeAllSessionsDescription": "Alle Benutzersitzungen werden widerrufen",
+        "revokeAllSessionsConfirm": "Bist du sicher, dass du alle Sitzungen widerrufen möchtest?"
       }
+    },
+    "auditLogs": {
+      "title": "Audit-Logs"
     }
   }
 }

@@ -1,0 +1,1109 @@
+{
+  "languageName": "Inglês",
+  "sharedButtons": {
+    "create": "Criar",
+    "save": "Salvar",
+    "close": "Fechar",
+    "copy": "Copiar",
+    "delete": "Apagar",
+    "settings": "Configurações",
+    "login": "Entrar",
+    "logout": "Sair",
+    "edit": "Editar",
+    "select": "Selecione",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar",
+    "saveSettings": "Salvar configurações",
+    "setDefaultSettings": "Definir configurações padrão",
+    "goToDashboard": "Vá para o painel",
+    "add": "Adicionar",
+    "send": "Enviar",
+    "next": "Próximo",
+    "previous": "Anterior",
+    "reset": "Reiniciar",
+    "popout": "‘Pop’ out. Em nova janela"
+  },
+  "sharedTexts": {
+    "saved": "Salvo",
+    "errorOnSave": "Erro ao salvar {error}",
+    "enabled": "Habilitado",
+    "status": "Estatuto",
+    "name": "Nome",
+    "actions": "Ações",
+    "responses": "Respostas",
+    "reply": {
+      "label": "Responder",
+      "text": "O bot enviará respostas de comandos como resposta"
+    },
+    "response": "Resposta",
+    "user": "Usuário",
+    "userName": "Nome de Usuário",
+    "dangerZone": "Zona de Perigo",
+    "deleted": "Excluído",
+    "updated": "Atualizado",
+    "disabled": "Desativado",
+    "setDefaultSettings": "Tem certeza de que deseja restaurar as configurações padrão?",
+    "placeCursorMessage": "Coloque o cursor depois de \"$\" para alterar a variável",
+    "pagination": "{page} página(s) / {total} item(s)",
+    "paginationPerPage": "Por página",
+    "searchPlaceholder": "Pesquisar...",
+    "messages": "Mensagens",
+    "asc": "Cresc",
+    "desc": "Decresc",
+    "hide": "Ocultar",
+    "view": "Mostrar",
+    "toggleColumns": "Alternar colunas",
+    "copied": "Copiado",
+    "userSelected": "{count} Usuários selecionados",
+    "userSelectPlaceholder": "Selecionar usuário/Selecionar Usuários",
+    "userNotFound": "Nenhum usuário encontrado",
+    "settings": "Configurações",
+    "create": "Criar",
+    "edit": "Editar",
+    "noData": "No data"
+  },
+  "sidebar": {
+    "dashboard": "Painel de Controle",
+    "commands": {
+      "label": "Comandos",
+      "custom": "Personalizado",
+      "builtin": "Embutido"
+    },
+    "integrations": "Integrações",
+    "events": "Eventos",
+    "chatAlerts": "Alertas de Bate-papo",
+    "overlays": "Sobreposições",
+    "overlaysRegistry": "Cadastro de Sobreposições",
+    "songRequests": "Pedidos de Músicas",
+    "timers": "Temporizadores",
+    "roles": "Permissões",
+    "keywords": "Palavras-chave",
+    "variables": "Variáveis",
+    "greetings": "Saudações",
+    "alerts": "Alertas",
+    "games": "Jogos",
+    "users": "Usuários",
+    "moderation": "Moderação",
+    "publicPage": "Página Pública",
+    "import": "Importar",
+    "community": "Comunidade",
+    "logout": "Sair",
+    "loggedAs": "Logado como",
+    "lang": "Idioma",
+    "darkTheme": "Tema Escuro",
+    "lightTheme": "Tema Claro",
+    "notifications": "Notificações"
+  },
+  "deleteConfirmation": {
+    "text": "Tem certeza em deletar esta coisa?",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
+  },
+  "haveNoAccess": {
+    "title": "Sem acesso",
+    "description": "Você não tem autorização para isso, peça permissão ao streamer."
+  },
+  "pageNotFound": {
+    "title": "404 Não Encontrado",
+    "description": "Você sabe que a vida é sempre ridícula."
+  },
+  "commands": {
+    "name": "Comando | Comandos",
+    "searchPlaceholder": "Procurar pelo comando...",
+    "newCommandTitle": "Novo Comando",
+    "importCommands": "Importar comandos",
+    "groups": {
+      "manageButton": "Gerenciar Grupos",
+      "name": "Nome",
+      "color": "Cor"
+    },
+    "table": {
+      "responses": {
+        "empty": "As respostas estão vazias!"
+      }
+    },
+    "modal": {
+      "name": {
+        "label": "Nome",
+        "validations": {
+          "empty": "Nome do Comando é obrigatório.",
+          "startsWith": "Nome do Comando não deve começar com '!'.",
+          "len": "Nome do Comando deve ter menos de 25 caracteres."
+        }
+      },
+      "aliases": {
+        "label": "Additional names"
+      },
+      "gameCategories": {
+        "label": "Ativar comando apenas em certas categorias (deixe em branco para desativar)"
+      },
+      "expiration": {
+        "label": "Expiração",
+        "actionsLabel": "Ação ao expirar",
+        "defaultWarning": "Expiration cannot be set for default command",
+        "actions": {
+          "delete": "Comando será excluído",
+          "disable": "Comando será desativado"
+        }
+      },
+      "description": {
+        "label": "Descrição do Comando"
+      },
+      "responses": {
+        "add": "Adicionar Resposta",
+        "description": "Esta é sua resposta do comando. Você pode usar variáveis de comando como {0}.",
+        "validations": {
+          "empty": "A resposta não deve estar vazia. Comandos podem ser criados sem uma resposta, então você pode pular este campo.",
+          "len": "A resposta deve conter menos de 500 caracteres."
+        },
+        "defaultWarning": "As respostas não podem ser editadas para comandos padrão."
+      },
+      "permissions": {
+        "divider": "Permissões",
+        "name": "Funções",
+        "placeholder": "Selecione funções para conceder permissões para usar comandos",
+        "deniedUsers": "Usuários, que não podem usar esse comando.",
+        "allowedUsers": "Usuários, que podem ignorar as restrições de funções para esse comando.",
+        "exceptions": "Exceptions",
+        "blocked": "Blocked users"
+      },
+      "restrictions": {
+        "name": "Restrições por estatísticas",
+        "watchTime": "Tempo de relógio necessário para usar esse comando.",
+        "messages": "Contagem de mensagens necessárias para usar esse comando.",
+        "channelsPoints": "Gasto de Pontos de Canais necessário para usar esse comando."
+      },
+      "cooldown": {
+        "label": "Tempo de Recarga",
+        "value": "Tempo de Recarga em segundos",
+        "type": {
+          "name": "Tempo de Recarga por",
+          "global": "Global",
+          "user": "Individual (por usuário)"
+        }
+      },
+      "settings": {
+        "divider": "Configurações",
+        "visible": {
+          "label": "Visibilidade",
+          "text": "Visibilidade do comando em uma página de comandos pública."
+        },
+        "keepOrder": {
+          "label": "Manter a Ordem",
+          "text": "O Bot irá manter esta ordem de respostas quando enviá-las ao bate-papo."
+        },
+        "onlineOnly": {
+          "label": "Somente quando Online",
+          "text": "Este comando só funcionará quando a stream estiver online."
+        },
+        "other": {
+          "divider": "Outro",
+          "commandGroup": "Grupo de Comando"
+        }
+      },
+      "alert": {
+        "label": "Selecione um alerta, o qual será acionado quando o comando for usado."
+      }
+    }
+  },
+  "dashboard": {
+    "header": {
+      "managingUser": "Gerenciando Usuário",
+      "channelsAccess": "Canais que você tem acesso"
+    },
+    "botManage": {
+      "title": "Estado do bot",
+      "success": "Ativar e ter estado de moderador",
+      "notEnabledTitle": "O bot não está habilitado no canal",
+      "notModerator": "Descobrimos que o bot não é um moderador neste canal. Por favor, use {0}, caso contrário o bot não enviará mensagens no bate-papo e a maioria das funções não funcionará",
+      "leave": "Desabilitar",
+      "join": "Habilitado"
+    },
+    "statsWidgets": {
+      "streamInfo": {
+        "noTitle": "Não foi possível obter o Título da Transmissão!",
+        "noCategory": "Não foi possível obter Categoria!",
+        "modalTitle": "Editar informações da Transmissão",
+        "title": "Título da Transmissão",
+        "category": "Categoria"
+      },
+      "uptime": "Tempo de atividade",
+      "followers": "Seguidores",
+      "messages": "Mensagens",
+      "subs": "Subscritores",
+      "usedEmotes": "Emotes Enviados",
+      "viewers": "Espectadores",
+      "requestedSongs": "Músicas solicitadas"
+    },
+    "widgets": {
+      "chat": {
+        "title": "Conversa"
+      },
+      "stream": {
+        "title": "Transmissão"
+      },
+      "events": {
+        "title": "Lista de eventos"
+      },
+      "bot": {
+        "title": "Gestão de bots"
+      },
+      "audit-logs": {
+        "title": "Registos de auditoria",
+        "search-label": "Pesquisar por",
+        "search": {
+          "channel": "Canal",
+          "actor": "Atriz"
+        },
+        "operation-type-label": "Tipo de operação",
+        "operation-type": {
+          "create": "Criado",
+          "delete": "Excluído",
+          "update": "Editado"
+        },
+        "systems-label": "Sistemas",
+        "systems": {
+          "badge": "Medalha",
+          "badge-user": "Usuário do selo",
+          "channel-command": "Comando",
+          "channel-command-group": "Grupo de Comando",
+          "channel-variable": "Variável",
+          "channel-games-eight-ball": "8ball",
+          "channel-games-duel": "Duelo",
+          "channel-games-russian-roulette": "Roleta Russa",
+          "channel-games-seppuku": "Seppuku",
+          "channel-games-voteban": "Voteban",
+          "channel-greeting": "Saudar",
+          "channel-keyword": "Palavra-chave",
+          "channel-moderation-setting": "Configurações da moderação",
+          "channel-overlay-chat": "Sobreposição do chat",
+          "channel-overlay-dudes": "Dudes Overlay",
+          "channel-overlay-now-playing": "Now Playing Overlay",
+          "channel-roles": "Funções",
+          "channel-timers": "Temporizadora",
+          "channel-song-requests": "Solicitações de músicas",
+          "channel-integrations": "Integração",
+          "channel-alerts": "Alerta",
+          "channel-chat-alerts": "Chat alerts"
+        }
+      }
+    }
+  },
+  "integrations": {
+    "notLoggedIn": "You have not logged in!",
+    "songServicesInfo": "Providing access to this service allows Twir to automatically get and print your currently playing song into chat when {0} command is being used.",
+    "donateServicesInfo": "Providing access to this service allows Twir to listen to incoming donations, and will setup interactions for you in {0}, {1} categories.",
+    "discord": {
+      "description": "Providing access to Discord allows Twir to setup automatic pings and alerts about the stream status on your Discord servers.",
+      "guildPluralization": "No servers | 1 server | {count} servers",
+      "connectedGuilds": "{guilds} connected",
+      "alerts": {
+        "label": "Alertas",
+        "showTitle": "Mostrar título da transmissão?",
+        "showCategory": "Mostrar categoria de transmissão?",
+        "showViewers": "Mostrar contador de espectadores?",
+        "showPreview": "Mostrar visualização da transmissão?",
+        "showProfileImage": "Mostrar avatar do perfil do Twitch?",
+        "channelsSelect": "Onde serão publicados os alertas?",
+        "streamOnlineLabel": "Mensagem de alerta de fluxo",
+        "streamOnlinePlaceholder": "This message Twir will send when the stream starts.",
+        "streamOfflineLabel": "Stream Ended Message",
+        "streamOfflinePlaceholder": "This message Twir will send when the stream goes offline.",
+        "updateAlert": "Twir will update embed message periodically to make sure it is synced with your stream state. (viewers, title, category, etc.)",
+        "shouldDeleteMessageOnOffline": "Delete alert message instead of editing it when stream goes offline?",
+        "additionalUsersIdsForLiveCheck": "Additional list of Twitch users to follow to send stream alerts."
+      },
+      "connectGuild": "+ Connect Server",
+      "disconnectGuild": "Disconnect Server",
+      "noGuilds": "No Servers Connected",
+      "cannotSendMessage": "Bot has no ability to send messages in that channel. Check out channel permissions to solve this."
+    },
+    "faceit": {
+      "info": "Providing access to this service allows Twir to track your Faceit matches and will setup command variables such as {0}, {1} and much more."
+    },
+    "nightbot": {
+      "info": "Providing access to this service allows Twir to import commands and timers from Nightbot."
+    },
+    "valorant": {
+      "info": "Providing access to this service allows Twir to track your Valorant matches and will setup command variables such as {0}, {1} and much more. "
+    },
+    "sevenTv": {
+      "description": "We can manage 7tv channel emotes, when this integration is enabled.",
+      "alert": "You also can do advanced flow via {0} system to manage 7tv emotes.",
+      "connected": "Conectado",
+      "notConnected": "Não conectado",
+      "notRegistered": "You are not registered at {0}",
+      "errorSameReward": "You cannot use the same reward for adding and removing emotes!",
+      "deleteOnlyAddedByApp": "Remove emotes only added by Twir",
+      "connectSteps": {
+        "step1": "Open your {0} profile",
+        "step2": "Click on \"Add editors\" button",
+        "step3": "Add {0} as an editor"
+      },
+      "rewardForAddEmote": "Reward for adding emote",
+      "rewardForRemoveEmote": "Reward for removing emote",
+      "rewardSelectorDescription": "You should create reward with input. Users must use 7tv link to emote when they're activating reward."
+    }
+  },
+  "events": {
+    "delay": "Delay (in seconds)",
+    "repeat": "Contagem de testes",
+    "onlineOnly": "Online-Only Execution",
+    "type": "Tipo",
+    "description": "Descrição",
+    "targetCommand": "Comando de Destino",
+    "targetVariable": "Target Variable",
+    "targetTwitchReward": "Target Twitch Reward",
+    "targetKeyword": "Target Keyword",
+    "operations": {
+      "divider": "Ações",
+      "name": "Action",
+      "inputs": {
+        "message": "Message To Send (supports variables)",
+        "default": "Action Text (supports variables)",
+        "vipSlots": "VIP Slots Amount",
+        "username": "Username (supports variables)",
+        "variableValue": "New Variable Value (supports variables)",
+        "variableIncrementDecrement": "Increment/Decrement Value (supports variables)"
+      },
+      "banMessage": "Ban Message",
+      "banTime": "Ban Time",
+      "obs": {
+        "warningTitle": "You need to configure OBS first before proceeding further!",
+        "warningText": "Seems like you have not connected Twir with OBS. You can do it on the “Overlays” page.",
+        "scene": "OBS Scene",
+        "source": "OBS Source",
+        "audioSource": "OBS Audio Source"
+      },
+      "values": "Valores",
+      "triggerAlert": "Trigger Alert",
+      "filters": {
+        "label": "Filtros",
+        "description": "You can filter events by specific conditions. For example if you use \"{'{raidViewers}'} equals 10\" on raid event, it will trigger operation only when raiders amount is 10.",
+        "placeholderLeft": "Left side of the condition",
+        "placeholderRight": "Right side of the condition",
+        "empty": "No filters added yet"
+      }
+    },
+    "variables": {
+      "userName": "Event Triggerer Username",
+      "userDisplayName": "Event Triggerer Display Name",
+      "targetUserName": "Event Target Username",
+      "targetDisplayUserName": "Event Target Display Name",
+      "subLevel": "Níveis de assinatura (como “1”/“2”/“3”/“primo”)",
+      "resubMonths": "Comprimento da assinatura",
+      "resubStreak": "Contagem total de meses assinantes",
+      "resubMessage": "User Resubscription Message",
+      "rewardName": "Channel Points Reward Name",
+      "rewardCost": "Channel Points Reward Price",
+      "rewardInput": "Channel Points Reward Custom Message",
+      "commandName": "Command Name",
+      "commandInput": "Command Arguments",
+      "raidViewers": "Amount of Raiders",
+      "oldStreamTitle": "Old Stream Title",
+      "newStreamTitle": "New Stream Title",
+      "oldStreamCategory": "Old Stream Category",
+      "newStreamCategory": "New Stream Category",
+      "streamTitle": "Stream Title",
+      "streamCategory": "Stream Category",
+      "donateAmount": "Donation Amount",
+      "donateCurrency": "Donation Currency",
+      "donateMessage": "Donation Message",
+      "keywordName": "Keyword Name",
+      "keywordResponse": "Keyword Responses (separated by space)",
+      "greetingText": "Greeting Message",
+      "pollTitle": "Poll Title",
+      "pollOptionsNames": "Poll Settings (separated by comma)",
+      "pollTotalVotes": "Total Poll Votes",
+      "pollWinnerTitle": "Poll Winner Name",
+      "pollWinnerBitsVotes": "Number of Winner's Bits Votes",
+      "pollWinnerChannelsPointsVotes": "Number of Winner's Channel Points Votes",
+      "pollWinnerTotalVotes": "Total Winner's Poll Votes",
+      "predictionTitle": "Prediction Title",
+      "predictionOptionsNames": "Prediction Outcomes (separated by · symbol)",
+      "predictionTotalChannelPoints": "Total Channel Points Placed",
+      "predictionWinner": {
+        "title": "Prediction Winner Outcome",
+        "totalUsers": "Total Winner Outcome Users",
+        "totalPoints": "Total Channel Points Placed on Winner Outcome",
+        "topUsers": "Top 10 Users of Winner Outcome"
+      },
+      "moderatorName": "Event Triggerer Moderator Username",
+      "moderatorDisplayName": "Event Triggerer Moderator Display Name",
+      "banReason": "Ban Reason",
+      "banEndsInMinutes": "Timeout (in minutes, or set to \"permanent\" to ban permamently)",
+      "message": "Message"
+    }
+  },
+  "overlays": {
+    "copyOverlayLink": "Copy Overlay Link",
+    "uncongirured": "You should configure overlay first!",
+    "noAccess": "You do not have access to this overlay!",
+    "copied": "Successfully copied overlay link URL! You need to set this as browser source in OBS.",
+    "nowPlaying": {
+      "description": "Overlay with current playable song information. This overlay will work only if you have connected your song service integration like spotify, lastfm."
+    },
+    "tts": {
+      "description": "This overlay allows you to play chat messages as audio through OBS with the set of preconfigured voices. You can control this overlay using commands or events.",
+      "eventsHint": "Hint: You can use events system to trigger TTS on specific event.",
+      "allowUsersChooseVoice": "Allow chatters to use different voices?",
+      "doNotReadEmoji": "Do Not Read Emojis",
+      "doNotReadTwitchEmotes": "Do Not Read Twitch Emotes (including 7TV, FFZ, BTTV",
+      "doNotReadLinks": "Do Not Read Links",
+      "readChatMessages": "Read All Chat Messages",
+      "readChatMessagesNicknames": "Read Usernames",
+      "voice": "Default Voice",
+      "disallowedVoices": "Disallowed Voices List",
+      "volume": "Volume",
+      "pitch": "Pitch",
+      "rate": "Rate",
+      "users": {
+        "selectAll": "Select All",
+        "undoSelection": "Undo Selection",
+        "empty": "No one have created their own customizations yet..."
+      },
+      "tabs": {
+        "general": "General",
+        "usersSettings": "Individual Settings"
+      },
+      "previewText": "Preview voice with text, pitch and rate:"
+    },
+    "obs": {
+      "description": "This overlay allows you to connect Twir with your OBS. It gives an ability to manage your sources, scenes, audio sources and events.",
+      "address": "Address of OBS WebSocket server",
+      "port": "Port of OBS WebSocket server",
+      "connected": "Connected!",
+      "notConnected": "Not Connected!",
+      "checkConnection": "Check Connection"
+    },
+    "alerts": {
+      "description": "This overlay allows you to play configured alerts from the “Alerts” section."
+    },
+    "chat": {
+      "presets": "Presets",
+      "selectSubsetPlaceholder": "Select preferable subsets",
+      "hideTimeout": "Message Hide Timeout",
+      "showDelay": "Message Show Delay",
+      "showBadges": "Show Badges",
+      "showAnnounceBadge": "Show Announcement Border",
+      "paddingContainer": "Inside Container Padding",
+      "resetToDefault": "Reset to Default",
+      "textShadow": "Text Shadow",
+      "backgroundColor": "Background Color",
+      "direction": "Message Direction",
+      "directions": {
+        "left": "Left",
+        "right": "Right",
+        "top": "Top",
+        "bottom": "Bottom"
+      },
+      "directionWarning": "To use 'Left' and 'Right' you should set overlay height up to 50x for the chat to display properly!",
+      "fontFamily": "Font Family",
+      "fontSize": "Font Size",
+      "fontStyle": "Font Style",
+      "fontWeight": "Font Weight",
+      "availabeFonts": "Available Fonts",
+      "hideCommands": "Hide Commands",
+      "hideBots": "Hide Other Bots Messages",
+      "style": "Message Style",
+      "description": "This overlay allows you to display your Twitch chat in your streaming software (such as OBS, XSplit, etc).)"
+    },
+    "dudes": {
+      "description": "Animated characters for chatters in your stream",
+      "enable": "Enable",
+      "dudeDivider": "Dude",
+      "dudeDefaultSprite": "Default sprite",
+      "dudeMaxOnScreen": "Max on screen",
+      "dudeMaxOnScreenUnlimited": "Unlimited",
+      "dudeColor": "Default user color",
+      "dudeGravity": "Gravity",
+      "dudeMaxLifeTime": "Max life time",
+      "dudeScale": "Scale",
+      "dudeSoundsDivider": "Sounds",
+      "dudeSoundsVolume": "Volume",
+      "ignoreDivider": "Ignoring",
+      "ignoreCommands": "Ignore commands",
+      "ignoreUsers": "Ignore users",
+      "ignoreUsersList": "List of ignored users",
+      "nameBoxDivider": "Name box",
+      "nameBoxFill": "Text colors",
+      "nameBoxFillError": "Color is required",
+      "nameBoxFillGradientStops": "Text colors of gradient stops",
+      "nameBoxFillGradientStopsError": "Text colors of gradient range should be from 0 to 1",
+      "nameBoxGradientType": "Gradient type",
+      "nameBoxFontFamily": "Font family",
+      "nameBoxFontSize": "Font size",
+      "nameBoxFontWeight": "Font weight",
+      "nameBoxFontStyle": "Font style",
+      "nameBoxFontVariant": "Font variant",
+      "nameBoxStroke": "Stroke color",
+      "nameStrokeThickness": "Stroke thickness",
+      "nameBoxLineJoin": "Stroke line join",
+      "nameBoxDropShadow": "Drop shadow",
+      "nameBoxDropShadowColor": "Shadow color",
+      "nameBoxDropShadowAlpha": "Shadow alpha",
+      "nameBoxDropShadowBlur": "Shadow blur",
+      "nameBoxDropShadowDistance": "Shadow distance",
+      "nameBoxDropShadowAngle": "Shadow angle",
+      "messageBoxIgnoreCommands": "Ignore commands",
+      "messageBoxDivider": "Message box",
+      "messageBoxShowTime": "Show time",
+      "messageBoxFill": "Text color",
+      "messageBoxBackground": "Background color",
+      "messageBoxPadding": "Padding",
+      "messageBoxBorderRadius": "Border radius",
+      "messageBoxFontSize": "Font size",
+      "emoteDivider": "Emote",
+      "growDivider": "Grow",
+      "growTime": "Grow time",
+      "growMaxScale": "Max scale"
+    },
+    "kappagen": {
+      "description": "This overlay allows you to fill up your screen with explosions, movements, fireworks, walls of emotes through the chat.",
+      "testKappagen": "Test Kappagen",
+      "testSpawn": "Test Emote Spawn",
+      "clear": "Clear Overlay",
+      "info": "Spawn will show emotes on screen while users just chatting around and sending emotes. Kappagen will show configured amount of emotes on a command or configured events.",
+      "tabs": {
+        "main": "Settings",
+        "events": "Events",
+        "animations": "Animations"
+      },
+      "settings": {
+        "spawn": "Spawn an emote on each chat message?",
+        "size": "Size",
+        "sizeSmall": "Size for Small Emote Variant",
+        "time": "Emote Livespan",
+        "maxEmotes": "Emotes Amount",
+        "animationsOnAppear": "Appearing Emote Animation",
+        "animationsOnDisappear": "Disappearing Emote Animation",
+        "excludedEmotes": "Excluded Emotes",
+        "rave": "Show Rave (Rainbow) Emotes",
+        "emotes": {
+          "bttvEnabled": "Enable BetterTTV Emotes?",
+          "ffzEnabled": "Enable FrankerFaceZ Emotes?",
+          "seventvEnabled": "Enable 7TV Emotes?",
+          "emojiStyle": "Emoji Style"
+        }
+      }
+    },
+    "brb": {
+      "description": "This overlay allows you to show a countdown on screen for specific events or while you're AFK.",
+      "settings": {
+        "main": {
+          "label": "Settings",
+          "startCommand": {
+            "description": "Overlay Start Command",
+            "example": "<b>!brb 1 Coffee</b> – starts an 1-minute timer with 'Coffee' label.<br><b>!brb 1</b> – starts an 1-minute timer with default text specified in the Settings and Post-Timer Settings sections."
+          },
+          "stopCommand": {
+            "description": "Overlay Stop Command",
+            "example": "!brbstop"
+          },
+          "text": "Overlay Text",
+          "background": "Overlay Background",
+          "backgroundOpacity": "Overlay Background Opacity",
+          "font": {
+            "color": "Font Color",
+            "family": "Font Family",
+            "size": "Font Size"
+          }
+        },
+        "late": {
+          "label": "Post-Timer Settings",
+          "text": "Overlay Post-Timer Text",
+          "displayBrb": "Display Countdown Information"
+        }
+      },
+      "preview": {
+        "start": "Start Overlay Preview",
+        "stop": "Stop Overlay Preview"
+      }
+    }
+  },
+  "songRequests": {
+    "waiting": "Awaiting a Song Request...",
+    "player": {
+      "title": "Current Song",
+      "noAccess": "Seems, that you are not able to listen songs there... Go to your own dashboard Song Requests to access the player."
+    },
+    "table": {
+      "title": "Queue",
+      "columns": {
+        "title": "Title",
+        "author": "Author",
+        "added": "Added by",
+        "duration": "Duration"
+      }
+    },
+    "settings": {
+      "onlineOnly": "Allow Song Requests when streaming?",
+      "announcePlay": "Announce Current Song into Chat?",
+      "playerNoCookieMode": "Incognito mode for player",
+      "playerNoCookieModeDescription": "Enabling this option will allow you to listen to songs without cookies and viewing history. Need refresh page after enabling.",
+      "neededPercentageForskip": "User Skip Percentage",
+      "channelReward": "Channel Points Reward Request Trigger",
+      "deniedChannels": "Banned YouTube Channels List (from requesting songs)",
+      "deniedWords": "Banned Word List (affects both titles and YouTube channel names)",
+      "deniedUsers": "Banned Users",
+      "deniedSongs": "Banned Songs List",
+      "takeSongFromDonationMessage": "Attempt to get song links from donation messages?",
+      "confirmClearQueue": "Are you sure you want to clear the queue?",
+      "users": {
+        "maxRequests": "Maximum Request Per-User Amount",
+        "minimalWatchTime": "Minimal Watch Time (in minutes)",
+        "minimalMessages": "Minimal Message Amount",
+        "minimalFollowTime": "Minimal Follow Time (in minutes)"
+      },
+      "songs": {
+        "maxRequests": "Maximum Song Queue Limit",
+        "minLength": "Minimal Song Length (in minutes)",
+        "maxLength": "Maximum Song Length (in minutes)",
+        "minViews": "Minimal Views Amount"
+      }
+    },
+    "tabs": {
+      "general": "General",
+      "users": "Users",
+      "songs": "Songs",
+      "translations": "Translations"
+    },
+    "ban": {
+      "user": "Ban user",
+      "song": "Ban song",
+      "userConfirm": "Are you sure you want to ban this user?",
+      "songConfirm": "Are you sure you want to ban this song?"
+    }
+  },
+  "timers": {
+    "table": {
+      "columns": {
+        "intervalInMinutes": "Interval in minutes",
+        "intervalInMessages": "Chat lines interval"
+      }
+    },
+    "modal": {
+      "timelineDescription": "Each response will be sent once both interval conditions is met.",
+      "validations": {
+        "nameLong": "Timer Name is too long!",
+        "nameRequired": "Timer Name is required!",
+        "responseRequired": "Response Text is required!",
+        "responseLong": "Response is too long!"
+      }
+    },
+    "limitExceeded": "Timer Limit exceeded!",
+    "newTimer": "New timer"
+  },
+  "roles": {
+    "modal": {
+      "accessToUsers": "Permitted Users",
+      "accessByStats": "Permitted Users (by stats)",
+      "requiredWatchTime": "Required Watch Time",
+      "requiredMessages": "Required Messages Amount",
+      "requiredChannelPoints": "Required Channel Points Spent",
+      "permissions": "Permissions"
+    },
+    "validations": {
+      "nameRequired": "Name is required!"
+    }
+  },
+  "keywords": {
+    "title": "Keywords",
+    "info": {
+      "text": "Keywords helps you to trigger chat message on certain words matching."
+    },
+    "create": "Create keyword",
+    "triggerText": "Trigger Text",
+    "usages": "Usage Count",
+    "isRegular": "Is a Regular Expression?",
+    "regularDescription": "Regular Expression should be written in golang format! See {0} here.",
+    "regularDescriptionCheatSheet": "cheat sheet",
+    "settings": "Settings",
+    "cooldown": "Cooldown (in seconds)",
+    "validations": {
+      "triggerRequired": "Trigger Text is required!",
+      "triggerLong": "Trigger Text is too long!",
+      "responseLong": "Response Text is too long!"
+    }
+  },
+  "variables": {
+    "title": "Variables",
+    "type": "Type",
+    "info": "Variables is a type of a context that can be used in bot responses, commands and other parts of the bot. You can specify a constant value or put a script to get some values that is usually cannot be easily accessed by the bot. Script Variables are recommended for advanced users.",
+    "validations": {
+      "nameRequired": "Variable Name is required!",
+      "nameLong": "Variable Name is too long"
+    }
+  },
+  "greetings": {
+    "title": "Greetings",
+    "create": "Create greeting",
+    "edit": "Edit greeting",
+    "info": {
+      "title": "Greetings Information",
+      "text": "Greetings are a type of messages that bot uses to welcome known stream viewers when they send their first message in chat on each stream. If you wish to greet every user in chat, then you can look at the events category instead of Greetings."
+    },
+    "validations": {
+      "userName": "Username is required!",
+      "textRequired": "Response Text is required!"
+    }
+  },
+  "alerts": {
+    "title": "Alerts",
+    "info": "Alerts Information",
+    "overlayLabel": "Alerts are a graphical part of the command or event implementation. You can configure an alert with specified audio, image and text, then assign it to specific command, event, keyword or greeting. Also do not forget to insert overlay URL as a browser source into your streaming software scene! (such as OBS, XSplit, etc.)",
+    "copyOverlayLink": "Copy overlay link",
+    "name": "Name",
+    "rewards": "Rewards",
+    "commands": "Commands",
+    "validations": {
+      "name": "Name cannot be empty or longer than 30 symbols!"
+    },
+    "trigger": {
+      "commands": "Command Trigger",
+      "rewards": "Channel Points Reward Trigger",
+      "keywords": "Keyword Trigger",
+      "greetings": "Greeting Trigger"
+    },
+    "select": {
+      "audio": "Confugure an audio",
+      "image": "Configure an image",
+      "text": "Configure text"
+    },
+    "audioVolume": "Audio volume",
+    "createAlert": "Create alert",
+    "editAlert": "Edit alert",
+    "tableEmpty": "No alerts found"
+  },
+  "games": {
+    "command": "Command",
+    "8ball": {
+      "description": "A simple chat game that allows chatters to ask the magic 8ball something and it will answer to the chatter.",
+      "answers": "Answers"
+    },
+    "russianRoulette": {
+      "description": "A simple chat game that allows chatters to test luck in a classic russian funny* roulette game.",
+      "canBeUsedByModerator": "Timeout Moderators? *Moderator privileges will be granted again after the timeout.",
+      "timeoutSeconds": "Timeout Time (in seconds, set it to 0 to disable a timeout)",
+      "decisionSeconds": "Result Delay (in seconds)",
+      "initMessage": "Trigger Pull Announcement (Game Start Message)",
+      "surviveMessage": "User Survived Message",
+      "deathMessage": "User Lost Message",
+      "chargedBullets": "Charged Bullets Amount: {tumberSize}",
+      "tumberSize": "Revolver Сylinder's Size"
+    },
+    "duel": {
+      "title": "Duels",
+      "description": "A simple chat game between two users allowing to test their dodge skills!",
+      "commands": {
+        "title": "Duel Commands",
+        "duel": "Ask for a Duel",
+        "accept": "Accept a Duel",
+        "stats": "Statistics"
+      },
+      "cooldown": {
+        "title": "Duel Cooldown",
+        "user": "Individual",
+        "global": "Global"
+      },
+      "messages": {
+        "title": "Messages",
+        "start": {
+          "title": "Initial Message",
+          "description": "Sends this message when duel initiated. Available variables: {'{target}, {initiator}, {duelAcceptCommandName}, {acceptSeconds}'}"
+        },
+        "result": {
+          "title": "Result Message",
+          "description": "Sends this message when duel happened. Available variables: {'{loser}, {winner}'}"
+        },
+        "bothDie": {
+          "title": "«No One Survived» Message",
+          "description": "Sends this message when duel happened and both duelists are dead. Available variables: {'{target}, {initiator}'}"
+        }
+      },
+      "settings": {
+        "title": "Settings",
+        "secondsToAccept": "Seconds to accept duel",
+        "timeoutTime": "Timeout time for loser",
+        "pointsPerWin": "Reputation for win",
+        "pointsPerLose": "Reputation for lose",
+        "bothDiePercent": "Percent of chance both users die"
+      }
+    },
+    "seppuku": {
+      "description": "Seppuku, is a form of Japanese ritualistic suicide by disembowelment.",
+      "message": "Message",
+      "timeoutModerators": "Enable seppuku for moderators",
+      "messageModerators": "Message when moderator used seppuku",
+      "timeoutSeconds": "Timeout seconds"
+    },
+    "voteban": {
+      "description": "Commence jury trial of the guilty chatterer!",
+      "banMessage": "Message on ban",
+      "banMessageModerators": "Message for ban moderator",
+      "surviveMessage": "Survive message",
+      "surviveMessageModerators": "Survive message for moderators",
+      "initialMessage": "Init message",
+      "neededVotes": "Needed votes",
+      "banDuration": "Duration of ban",
+      "voteMode": "Mode of vote",
+      "voteDuration": "Duration of vote in seconds",
+      "wordsNegative": "Words for vote to \"no\" option",
+      "wordsPositive": "Words for vote to \"yes\" option",
+      "timeoutModerators": "Enable voteban on moderators"
+    }
+  },
+  "community": {
+    "title": "Community",
+    "users": {
+      "title": "Users",
+      "searchPlaceholder": "Search users...",
+      "table": {
+        "user": "User",
+        "watchedTime": "Watched Time",
+        "messages": "Messages",
+        "usedEmotes": "Used Emotes",
+        "usedChannelPoints": "Channel Points Spent",
+        "empty": "No users"
+      },
+      "total": "Total users: {total}",
+      "reset": {
+        "label": "Reset",
+        "resetQuestion": "Are you sure you want to reset {title}?"
+      }
+    },
+    "emotesStatistic": {
+      "title": "Emotes Statistics",
+      "searchPlaceholder": "Search emotes...",
+      "table": {
+        "emote": "Emote",
+        "usages": "Total usages",
+        "users": "Users",
+        "empty": "No emotes",
+        "chart": "Usages chart",
+        "lastDay": "Day",
+        "lastWeek": "Week",
+        "lastMonth": "Month",
+        "lastThreeMonth": "3 months",
+        "lastYear": "Year"
+      },
+      "total": "Total emotes: {total}",
+      "details": {
+        "stats": "Stats",
+        "users": "Users",
+        "usersTabs": {
+          "top": "Top",
+          "history": "History"
+        }
+      }
+    }
+  },
+  "filePicker": {
+    "innerText": "Select or drop {type} here.",
+    "usedSpace": "Used {used} / {max} MB",
+    "emptyText": "No {type} uploaded."
+  },
+  "overlaysRegistry": {
+    "description": "This category allows you to create custom configurable overlays for OBS. Currently only HTML Overlays are supported, but other overlay variants will be added later. Thank you for the patience. <3",
+    "noLayersCreated": {
+      "title": "Not Configured",
+      "description": "Currently layers of overlays not created"
+    },
+    "customWidth": "Width",
+    "customHeight": "Height",
+    "name": "Overlay Name",
+    "createNewLayer": "Create New Layer",
+    "validations": {
+      "name": "Overlay Name cannot be empty and longer than 30 symbols!",
+      "layers": "Layers cannot be empty! This overlay cannot contain more than 15 layers."
+    },
+    "html": {
+      "description": "Allows you to use custom HTML, CSS and bot variables.",
+      "updateInterval": "HTML Variables Update Interval",
+      "variablesAlert": {
+        "title": "You can use bot variables in HTML, click on the list below to show available options.",
+        "selectToCopy": "Select a required variable. It will be automatically copied to the clipboard."
+      },
+      "periodicallyRefetchData": "Periodically parse and update HTML data from server?"
+    }
+  },
+  "chatAlerts": {
+    "randomedMessage": "If there are several variants of the chat alerts, then they will be picked randomly.<br>",
+    "randomMessageWithCount": "If there will be several variants with the same counter number, then they will be picked randomly.<br>",
+    "replacedInfo": "Available Variables: {vars}. They will be replaced with the actual information in the alert.<br>",
+    "cooldown": "Message Cooldown (in seconds)",
+    "ban": {
+      "alertInfo": "Set time to 0 to print a message when the user is permanently banned.<br>",
+      "countLabel": "Time (in minutes)",
+      "ignoreTimeoutFrom": "Ignore timeouts from"
+    },
+    "labels": {
+      "followers": "Followers",
+      "raids": "Raids",
+      "donations": "Donations",
+      "subscriptions": "Subscriptions",
+      "rewards": "Rewards",
+      "firstUserMessage": "First User Message",
+      "streamOnline": "Stream Online",
+      "streamOffline": "Stream Offline",
+      "chatCleared": "Chat Clear",
+      "userBanned": "User Ban",
+      "channelUnbanRequestCreate": "Unban Request Create",
+      "channelUnbanRequestResolve": "Unban Request Resolve",
+      "messageDelete": "Message Deleted"
+    }
+  },
+  "moderation": {
+    "createNewRule": "Create a New Moderation Rule",
+    "banTime": "Timeout Time",
+    "banDescription": "Set to 0 for ban permamently.",
+    "banMessage": "Timeout Message",
+    "warningMessage": "Warning Message",
+    "warningMaxCount": "Warning Maximum Count",
+    "excludedRoles": "Select roles which won't be impacted by this filter:",
+    "types": {
+      "links": {
+        "name": "Links",
+        "description": "Scans Twitch chat for any web links or URLs and promptly removes them to prevent spam or unsafe content from being sent into chat."
+      },
+      "deny_list": {
+        "name": "Disallowed Words List",
+        "description": "Helps to maintain clean chat by filtering out words or phrases specified in a predefined list, preventing them from being displayed.",
+        "empty": "List of disallowed words is empty! You can add one there.",
+        "regexp": "If you are an advanced user, Disallowed Words List also support regular expressions. Regular Expression should be written in golang format! See {0} here.",
+        "regexpCheatSheet": "cheat sheet"
+      },
+      "symbols": {
+        "name": "Symbols",
+        "description": "Identifies and restricts excessive use of symbols, preventing clutter, chaos and maintaining readability in the chat.",
+        "triggerLength": "Minimal Message Length",
+        "maxPercentage": "Maximum Symbols Percentage"
+      },
+      "long_message": {
+        "name": "Message Length",
+        "description": "Identifies and restricts long messages by limiting the length of messages sent into chat.",
+        "triggerLength": "Maximum Message Length"
+      },
+      "caps": {
+        "name": "Caps",
+        "description": "Identifies and restricts excessive use of capital letters, promoting a more balanced and respectful conversation in the chat.",
+        "maxPercentage": "Maximum Capital Letters Percentage",
+        "triggerLength": "Minimal Message Length"
+      },
+      "emotes": {
+        "name": "Emotes",
+        "description": "Detects the frequency and amount of emoticons used in messages, avoiding overuse and spam of them.",
+        "triggerLength": "Maximum Emote Usage Limit"
+      },
+      "language": {
+        "name": "Language",
+        "description": "Scans and filters out inappropriate languages.",
+        "allowedLanguages": "Allowed Languages List",
+        "disallowedLanguages": "Disallowed Languages List"
+      }
+    }
+  },
+  "feedback": {
+    "button": "Send feedback",
+    "notification": "Your feedback sended",
+    "rateLimited": "You are sending messages to quickly, try again in {time}",
+    "messageLabel": "Message",
+    "validation": {
+      "emptyMessage": "Message cannot be empty"
+    }
+  },
+  "userSettings": {
+    "title": "User settings",
+    "account": {
+      "title": "Account",
+      "showMeOnLanding": "Show yourself on the Landing Page?",
+      "regenerateApiKey": {
+        "button": "Regenerate Private API key",
+        "info": "This key is used for all overlays links. When you regenerate it, you need to check all your overlays in your streaming software and replace URLs with the new links."
+      }
+    },
+    "public": {
+      "title": "Public page",
+      "description": "Description of channel",
+      "socialLinks": "Social links",
+      "errorCreateLink": "\"{title}\" contains not a valid link {href}",
+      "errorInvalidLength": "Invalid length",
+      "errorInvalidLink": "Invalid link",
+      "errorEmpty": "Cannot be empty",
+      "errorTooLong": "Too long",
+      "linkTitle": "Title",
+      "linkLabel": "Link"
+    }
+  },
+  "adminPanel": {
+    "title": "Admin Panel",
+    "notifications": {
+      "title": "Notifications",
+      "formTitle": "Send or edit notification",
+      "emptyNotifications": "No notifications",
+      "userLabel": "User",
+      "userPlaceholder": "Select a user",
+      "messageLabel": "Message",
+      "messagePreview": "Preview",
+      "createdAt": "Created At",
+      "globals": "Globals",
+      "users": "Users",
+      "confirmResetForm": "Are you sure you want to reset the form?"
+    },
+    "manageUsers": {
+      "title": "Users",
+      "user": "User",
+      "userId": "User ID",
+      "followers": "Followers",
+      "noUsers": "No users",
+      "filters": "Filters",
+      "clearFilters": "Clear filters",
+      "countSelected": "{count} selected",
+      "isAdmin": "Admin",
+      "isBanned": "Banned",
+      "isBotEnabled": "Bot enabled",
+      "statusGroup": "Status",
+      "badgesGroup": "Badges",
+      "giveBan": "Ban user",
+      "unBan": "Unban user",
+      "giveMod": "Give admin",
+      "unMod": "Remove admin",
+      "dropSession": "Drop session"
+    },
+    "manageBadges": {
+      "title": "Badges",
+      "formTitle": "Create or edit badge",
+      "name": "Name",
+      "users": "Users",
+      "slot": "Slot",
+      "image": "Image",
+      "preview": "Preview",
+      "usesCount": "Uses {count}",
+      "badgeSlot": "Slot {slot}"
+    },
+    "adminActions": {
+      "title": "Actions",
+      "eventsub": {
+        "title": "Subscribe to EventSub",
+        "condition": "Condition",
+        "type": "Type",
+        "typeError": "Please select a type",
+        "version": "Version",
+        "user": "User",
+        "channel": "Channel",
+        "channelWithBotId": "Channel with bot ID",
+        "channelWithModeratorId": "Channel with moderator ID"
+      },
+      "dangerZone": {
+        "title": "Danger Zone",
+        "revoke": "Revoke",
+        "revokeSessions": "Revoke sessions",
+        "revokeAllSessionsDescription": "All user sessions will be revoked",
+        "revokeAllSessionsConfirm": "Are you sure you want to revoke all sessions?"
+      }
+    },
+    "auditLogs": {
+      "title": "Audit logs"
+    }
+  }
+}

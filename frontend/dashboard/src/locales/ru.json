@@ -36,7 +36,7 @@
       "text": "Бот будет отправлять команду как ответ"
     },
     "response": "Ответ",
-    "user": "User",
+    "user": "Пользователь",
     "userName": "Имя пользователя",
     "dangerZone": "Опасная зона",
     "deleted": "Удалено",
@@ -44,20 +44,23 @@
     "disabled": "Отключено",
     "setDefaultSettings": "Сбросить настройки по умолчанию?",
     "placeCursorMessage": "Поместите курсор после \"$\", чтобы изменить переменную",
-    "pagination": "{page} page(s) / {total} item(s)",
-    "paginationPerPage": "Per page",
+    "pagination": "из {page} страниц / {total} записей",
+    "paginationPerPage": "Постранично",
     "searchPlaceholder": "Поиск",
-    "messages": "Messages",
-    "asc": "Asc",
-    "desc": "Desc",
-    "hide": "Hide",
-    "view": "View",
-    "toggleColumns": "Toggle columns",
-    "copied": "Copied",
-    "userSelected": "{count} users selected",
-    "userSelectPlaceholder": "Select user|Select users",
-    "userNotFound": "No users found",
-    "settings": "Settings"
+    "messages": "Сообщения",
+    "asc": "",
+    "desc": "Описание",
+    "hide": "Скрыть",
+    "view": "Смотреть",
+    "toggleColumns": "Переключить столбцы",
+    "copied": "Скопировано",
+    "userSelected": "Выбрано {count} пользователей",
+    "userSelectPlaceholder": "Выберите пользователя|Выбрать пользователей",
+    "userNotFound": "Пользователи не найдены",
+    "settings": "Настройки",
+    "create": "Создать",
+    "edit": "Редактировать",
+    "noData": "Нет данных"
   },
   "sidebar": {
     "dashboard": "Панель управления",
@@ -81,13 +84,15 @@
     "games": "Игры",
     "users": "Зрители",
     "moderation": "Модерация",
-    "import": "Импортировать",
-    "community": "Community"
-  },
-  "navbar": {
-    "logout": "Выйти",
     "publicPage": "Публичная страница",
-    "seeAll": "Показать все"
+    "import": "Импортировать",
+    "community": "Сообщество",
+    "logout": "Выйти",
+    "loggedAs": "В системе как",
+    "lang": "Язык",
+    "darkTheme": "Тёмная тема",
+    "lightTheme": "Светлая тема",
+    "notifications": "Уведомление"
   },
   "deleteConfirmation": {
     "text": "Вы уверены, что хотите удалить это?",
@@ -95,8 +100,8 @@
     "confirm": "Подтвердить"
   },
   "haveNoAccess": {
-    "title": "No access",
-    "description": "You are not authorized to this, ask the broadcaster to provide it."
+    "title": "Нет доступа",
+    "description": "У вас нет прав для просмотра этой страницы, обратитесь к стримеру за доступом."
   },
   "pageNotFound": {
     "title": "404 Страница не найдена",
@@ -132,6 +137,15 @@
       "gameCategories": {
         "label": "Включить команду только в определенных категориях (оставьте пустым для отключения)"
       },
+      "expiration": {
+        "label": "Срок действия",
+        "actionsLabel": "Действие по истечению",
+        "defaultWarning": "Срок действия не может быть установлен для команды по умолчанию",
+        "actions": {
+          "delete": "Команда будет удалена",
+          "disable": "Команда будет отключена"
+        }
+      },
       "description": {
         "label": "Описание команды"
       },
@@ -149,7 +163,9 @@
         "name": "Роли",
         "placeholder": "Выберите роли, которым будут предоставлены права на использование команд.",
         "deniedUsers": "Пользователи, которые не смогут использовать эту команду.",
-        "allowedUsers": "Пользователи, которые смогут пользоваться этой командой, несмотря на роль."
+        "allowedUsers": "Пользователи, которые смогут пользоваться этой командой, несмотря на роль.",
+        "exceptions": "Исключения",
+        "blocked": "Заблокированные пользователи"
       },
       "restrictions": {
         "name": "Ограничения по статистике",
@@ -231,6 +247,45 @@
       },
       "bot": {
         "title": "Управление ботом"
+      },
+      "audit-logs": {
+        "title": "Журналы аудита",
+        "search-label": "Поиск по",
+        "search": {
+          "channel": "Канал",
+          "actor": "Актер"
+        },
+        "operation-type-label": "Тип операции",
+        "operation-type": {
+          "create": "Создан",
+          "delete": "Удалено",
+          "update": "Отредактировано"
+        },
+        "systems-label": "Системы",
+        "systems": {
+          "badge": "Значок",
+          "badge-user": "Значок пользователя",
+          "channel-command": "Команда",
+          "channel-command-group": "Группа команды",
+          "channel-variable": "Переменная",
+          "channel-games-eight-ball": "8мяч",
+          "channel-games-duel": "Дуэль",
+          "channel-games-russian-roulette": "Русская Рулетка",
+          "channel-games-seppuku": "Харакири",
+          "channel-games-voteban": "",
+          "channel-greeting": "Приветствие",
+          "channel-keyword": "Ключевое слово",
+          "channel-moderation-setting": "Настройки Модерации",
+          "channel-overlay-chat": "Всплывающий чат",
+          "channel-overlay-dudes": "Наложение оверлея",
+          "channel-overlay-now-playing": "Играет в оверлей",
+          "channel-roles": "Роль",
+          "channel-timers": "Таймер",
+          "channel-song-requests": "Заказ песен",
+          "channel-integrations": "Интеграция",
+          "channel-alerts": "Оповещение",
+          "channel-chat-alerts": "Оповещения в чате"
+        }
       }
     }
   },
@@ -593,7 +648,7 @@
       "deniedUsers": "Пользователи, которые не могут заказывать песни",
       "deniedSongs": "Запрещенные песни для заказа",
       "takeSongFromDonationMessage": "Попытаться получать ссылки на песни из сообщений о пожертвованиях?",
-      "confirmClearQueue": "Are you sure you want to clear the queue?",
+      "confirmClearQueue": "Вы уверены что хотите очистить очередь?",
       "users": {
         "maxRequests": "Максимальное количество заказов для пользователя",
         "minimalWatchTime": "Минимальное время просмотра для заказа песни (в минутах)",
@@ -611,7 +666,7 @@
       "general": "Общие настройки",
       "users": "Настройки пользователей",
       "songs": "Звуковые настройки",
-      "translations": "Translations"
+      "translations": "Переводы"
     },
     "ban": {
       "user": "Забанить пользователя",
@@ -637,7 +692,7 @@
       }
     },
     "limitExceeded": "Достигнут предел таймеров!",
-    "newTimer": "New timer"
+    "newTimer": "Новый таймер"
   },
   "roles": {
     "modal": {
@@ -655,9 +710,9 @@
   "keywords": {
     "title": "Ключевые слова",
     "info": {
-      "text": "Keywords helps you to trigger chat message on certain words matching."
+      "text": "Ключевые слова помогают срабатывать чат сообщение при совпадении определенных слов."
     },
-    "create": "Create keyword",
+    "create": "Создать ключевое слово",
     "triggerText": "Текст активации",
     "usages": "Количество использований",
     "isRegular": "Является регулярным выражением?",
@@ -674,7 +729,7 @@
   "variables": {
     "title": "Переменные",
     "type": "Тип",
-    "info": "Variables is a type of a context that can be used in bot responses, commands and other parts of the bot. You can specify a constant value or put a script to get some values that is usually cannot be easily accessed by the bot. Script Variables are recommended for advanced users.",
+    "info": "Переменные - это тип контекста, который может использоваться в ответах ботов, командах и других частях бота. Вы можете указать постоянное значение или установить скрипт, чтобы получить некоторые значения, которые обычно не могут быть легко доступны ботом. Переменные скрипта рекомендуются опытным пользователям.",
     "validations": {
       "nameRequired": "Название не должно быть пустым!",
       "nameLong": "Слишком длинное название"
@@ -682,11 +737,11 @@
   },
   "greetings": {
     "title": "Приветствия",
-    "create": "Create greeting",
-    "edit": "Edit greeting",
+    "create": "Создать приветствие",
+    "edit": "Редактировать приветствие",
     "info": {
       "title": "Информация о приветствиях",
-      "text": "Greetings are a type of messages that bot uses to welcome known stream viewers when they send their first message in chat on each stream. If you wish to greet every user in chat, then you can look at the events category instead of Greetings."
+      "text": "Приветствие - это тип сообщений, которые бот использует, чтобы приветствовать известных зрителей потока, когда они посылают свое первое сообщение в чате в каждом потоке. Если вы хотите поприветствовать каждого пользователя в чате, вы можете посмотреть на категорию событий вместо приветствия."
     },
     "validations": {
       "userName": "Имя пользователя не должно быть пустым!",
@@ -696,11 +751,11 @@
   "alerts": {
     "title": "Оповещения",
     "info": "Информация по оповещениям",
-    "overlayLabel": "Alerts are a graphical part of the command or event implementation. You can configure an alert with specified audio, image and text, then assign it to specific command, event, keyword or greeting. Also do not forget to insert overlay URL as a browser source into your streaming software scene! (such as OBS, XSplit, etc.)",
-    "copyOverlayLink": "Copy overlay link",
+    "overlayLabel": "Оповещения - это графическая часть реализации команды или события. Вы можете настроить оповещение с помощью указанного аудио, изображения и текста, а затем назначить его определенной команде, событию, ключевому слову или приветствию. Также не забудьте вставить URL оверлей в качестве источника браузера в область вашего программного обеспечения потокового вещания (например, OBS, XSplit и т. д.)",
+    "copyOverlayLink": "Скопировать ссылку на оверлей",
     "name": "Название",
-    "rewards": "Rewards",
-    "commands": "Commands",
+    "rewards": "Награды",
+    "commands": "Команды",
     "validations": {
       "name": "Имя не может быть пустым или содержать более 30 символов!"
     },
@@ -711,14 +766,14 @@
       "greetings": "Приветствия для триггера"
     },
     "select": {
-      "audio": "Confugure an audio",
-      "image": "Configure an image",
-      "text": "Configure text"
+      "audio": "Настроить звук",
+      "image": "Настроить изображение",
+      "text": "Настроить текст"
     },
-    "audioVolume": "Audio volume",
-    "createAlert": "Create alert",
-    "editAlert": "Edit alert",
-    "tableEmpty": "No alerts found"
+    "audioVolume": "Громкость звука",
+    "createAlert": "Создать оповещение",
+    "editAlert": "Изменить оповещение ",
+    "tableEmpty": "Уведомления не найдены"
   },
   "games": {
     "command": "Команда",
@@ -748,17 +803,17 @@
       },
       "cooldown": {
         "title": "Перезарядка Дуэли",
-        "user": "Individual",
-        "global": "Global"
+        "user": "Индивидуальный",
+        "global": "Глобальный"
       },
       "messages": {
         "title": "Сообщения",
         "start": {
-          "title": "Initial Message",
+          "title": "Исходное сообщение",
           "description": "Это сообщение будет отправлено при начале дуэли. Доступные переменные: {'{target}, {initiator}, {duelAcceptCommandName}, {acceptSeconds}'}"
         },
         "result": {
-          "title": "Result Message",
+          "title": "Результат сообщения",
           "description": "Это сообщение будет отправлено, когда дуэль завершится. Доступные переменные: {'{loser}, {winner}'}"
         },
         "bothDie": {
@@ -769,76 +824,76 @@
       "settings": {
         "title": "Настройки",
         "secondsToAccept": "Время для принятия вызова (сек.)",
-        "timeoutTime": "Timeout time for loser",
+        "timeoutTime": "Время ожидания проигравшего",
         "pointsPerWin": "Репутация за победу",
         "pointsPerLose": "Репутация за поражение",
         "bothDiePercent": "Вероятность того, что оба пользователя умрут"
       }
     },
     "seppuku": {
-      "description": "Seppuku, is a form of Japanese ritualistic suicide by disembowelment.",
-      "message": "Message",
-      "timeoutModerators": "Enable seppuku for moderators",
-      "messageModerators": "Message when moderator used seppuku",
-      "timeoutSeconds": "Timeout seconds"
+      "description": "Сеппуку – это форма японского ритуалистического самоубийства дизелем.",
+      "message": "Сообщение",
+      "timeoutModerators": "Включить seppuku для модераторов",
+      "messageModerators": "Сообщение при использовании seppuku модератором",
+      "timeoutSeconds": "Таймаут в секундах"
     },
     "voteban": {
-      "description": "Commence jury trial of the guilty chatterer!",
-      "banMessage": "Message on ban",
-      "banMessageModerators": "Message for ban moderator",
-      "surviveMessage": "Survive message",
-      "surviveMessageModerators": "Survive message for moderators",
-      "initialMessage": "Init message",
-      "neededVotes": "Needed votes",
-      "banDuration": "Duration of ban",
-      "voteMode": "Mode of vote",
-      "voteDuration": "Duration of vote in seconds",
-      "wordsNegative": "Words for vote to \"no\" option",
-      "wordsPositive": "Words for vote to \"yes\" option",
-      "timeoutModerators": "Enable voteban on moderators"
+      "description": "Начиная суду жюри виновного чаттерера!",
+      "banMessage": "Сообщение о бане",
+      "banMessageModerators": "Сообщение для модератора бана",
+      "surviveMessage": "Сообщение о выживании",
+      "surviveMessageModerators": "Сообщение о выживании для модераторов",
+      "initialMessage": "Исходное сообщение",
+      "neededVotes": "Нужно голосов",
+      "banDuration": "Срок блокировки",
+      "voteMode": "Режим голосования",
+      "voteDuration": "Продолжительность голосования в секундах",
+      "wordsNegative": "Слова для голосования в опцию \"нет\"",
+      "wordsPositive": "Слова для голосования в опцию \"да\"",
+      "timeoutModerators": "Включить бан голосований для модераторов"
     }
   },
   "community": {
-    "title": "Community",
+    "title": "Сообщество",
     "users": {
-      "title": "Users",
-      "searchPlaceholder": "Search users...",
+      "title": "Пользователи",
+      "searchPlaceholder": "Поиск пользователей...",
       "table": {
         "user": "Пользователь",
         "watchedTime": "Время просмотра",
         "messages": "Сообщения",
         "usedEmotes": "Использовано эмоций",
         "usedChannelPoints": "Использовано баллов канала",
-        "empty": "No users"
+        "empty": "Нет пользователей"
       },
       "total": "Всего пользователей: {total} ",
       "reset": {
-        "label": "Reset",
+        "label": "Сбросить",
         "resetQuestion": "Вы уверены, что хотите сбросить {title}?"
       }
     },
     "emotesStatistic": {
       "title": "Emotes statistics",
-      "searchPlaceholder": "Search emotes...",
+      "searchPlaceholder": "Поиск смайлов...",
       "table": {
-        "emote": "Emote",
-        "usages": "Total usages",
-        "users": "Users",
-        "empty": "No emotes",
-        "chart": "Usages chart",
-        "lastDay": "Day",
-        "lastWeek": "Week",
-        "lastMonth": "Month",
-        "lastThreeMonth": "3 months",
-        "lastYear": "Year"
+        "emote": "Эмоция",
+        "usages": "Всего использовано",
+        "users": "Пользователи",
+        "empty": "Нет смайлика",
+        "chart": "График использования",
+        "lastDay": "День",
+        "lastWeek": "Неделя",
+        "lastMonth": "Месяц",
+        "lastThreeMonth": "3 месяца",
+        "lastYear": "Год"
       },
-      "total": "Total emotes: {total}",
+      "total": "Всего смайликов: {total} ",
       "details": {
-        "stats": "Stats",
-        "users": "Users",
+        "stats": "Статистика",
+        "users": "Пользователи",
         "usersTabs": {
-          "top": "Top",
-          "history": "History"
+          "top": "Сверху",
+          "history": "История"
         }
       }
     }
@@ -880,7 +935,7 @@
     "ban": {
       "alertInfo": "Установите время на 0, чтобы выводить сообщение при перманентной блокировке<br>",
       "countLabel": "Время (в минутах)",
-      "ignoreTimeoutFrom": "Ignore timeouts from"
+      "ignoreTimeoutFrom": "Игнорировать тайм-ауты от"
     },
     "labels": {
       "followers": "Фолловеры",
@@ -895,7 +950,7 @@
       "userBanned": "Отстранение пользователя",
       "channelUnbanRequestCreate": "Запрос на разбан создан",
       "channelUnbanRequestResolve": "Запрос на разбан обработан",
-      "messageDelete": "Message Deleted"
+      "messageDelete": "Сообщение удалено"
     }
   },
   "moderation": {
@@ -915,7 +970,7 @@
         "name": "Список запрещённых слов",
         "description": "Помогает поддерживать чистоту чата, отфильтровывая слова и фразы, указанные в предопределенном списке, предотвращая их отправку.",
         "empty": "Список запрещенных слов пуст, добавьте хотя бы одно.",
-        "regexp": "If you are an advanced user, Disallowed Words List also support regular expressions. Regular Expression should be written in golang format! See {0} here.",
+        "regexp": "Если вы продвинутый пользователь, список запрещённых слов также поддерживает регулярные выражения. Регулярное выражение должно быть написано в формате golang! Смотрите {0} здесь.",
         "regexpCheatSheet": "шпаргалку"
       },
       "symbols": {
@@ -968,84 +1023,87 @@
       }
     },
     "public": {
-      "title": "Public page",
+      "title": "Публичная страница",
       "description": "Описание канала",
       "socialLinks": "Ссылки",
       "errorCreateLink": "\"{title}\" содержит некорректную ссылку {href}",
       "errorInvalidLength": "Недопустимое количество символов",
       "errorInvalidLink": "Некорректная ссылка",
       "errorEmpty": "Не может быть пустым",
-      "errorTooLong": "Too long",
-      "linkTitle": "Title",
-      "linkLabel": "Link"
+      "errorTooLong": "Слишком длинно",
+      "linkTitle": "Название",
+      "linkLabel": "Ссылка"
     }
   },
   "adminPanel": {
-    "title": "Admin Panel",
+    "title": "Панель администратора",
     "notifications": {
-      "title": "Notifications",
-      "formTitle": "Send or edit notification",
-      "emptyNotifications": "No notifications",
-      "userLabel": "User",
-      "userPlaceholder": "Select a user",
-      "messageLabel": "Message",
-      "messagePreview": "Preview",
-      "createdAt": "Created At",
-      "globals": "Globals",
-      "users": "Users",
-      "confirmResetForm": "Are you sure you want to reset the form?"
+      "title": "Уведомления",
+      "formTitle": "Отправить или изменить уведомление",
+      "emptyNotifications": "Нет уведомлений",
+      "userLabel": "Пользователь",
+      "userPlaceholder": "Выберите пользователя",
+      "messageLabel": "Сообщение",
+      "messagePreview": "Предпросмотр",
+      "createdAt": "Создано в",
+      "globals": "Глобальный",
+      "users": "Пользователи",
+      "confirmResetForm": "Вы действительно хотите удалить форму?"
     },
     "manageUsers": {
-      "title": "Users",
-      "user": "User",
-      "userId": "User ID",
-      "followers": "Followers",
-      "noUsers": "No users",
-      "filters": "Filters",
-      "clearFilters": "Clear filters",
-      "countSelected": "{count} selected",
-      "isAdmin": "Admin",
-      "isBanned": "Banned",
-      "isBotEnabled": "Bot enabled",
-      "statusGroup": "Status",
-      "badgesGroup": "Badges",
-      "giveBan": "Ban user",
-      "unBan": "Unban user",
-      "giveMod": "Give admin",
-      "unMod": "Remove admin",
-      "dropSession": "Drop session"
+      "title": "Пользователи",
+      "user": "Пользователь",
+      "userId": "ID пользователя",
+      "followers": "Фолловеры",
+      "noUsers": "Нет пользователей",
+      "filters": "Фильтры",
+      "clearFilters": "Очистить фильтры",
+      "countSelected": "Выбрано {count}",
+      "isAdmin": "Администратор",
+      "isBanned": "Заблокирован",
+      "isBotEnabled": "Бот включен",
+      "statusGroup": "Статус",
+      "badgesGroup": "Значки",
+      "giveBan": "Забанить пользователя",
+      "unBan": "Разбанить пользователя",
+      "giveMod": "Дать администрирование",
+      "unMod": "Удалить администратора",
+      "dropSession": "Сбросить сессию"
     },
     "manageBadges": {
-      "title": "Badges",
-      "formTitle": "Create or edit badge",
-      "name": "Name",
-      "users": "Users",
-      "slot": "Slot",
-      "image": "Image",
-      "preview": "Preview",
-      "usesCount": "Uses {count}",
-      "badgeSlot": "Slot {slot}"
+      "title": "Значки",
+      "formTitle": "Создать или изменить значок",
+      "name": "Имя",
+      "users": "Пользователи",
+      "slot": "Слот",
+      "image": "Изображение",
+      "preview": "Предпросмотр",
+      "usesCount": "Использует {count}",
+      "badgeSlot": "Слот {slot}"
     },
     "adminActions": {
-      "title": "Actions",
+      "title": "Действия",
       "eventsub": {
-        "title": "Subscribe to EventSub",
-        "condition": "Condition",
-        "type": "Type",
-        "typeError": "Please select a type",
-        "version": "Version",
-        "user": "User",
-        "channel": "Channel",
-        "channelWithBotId": "Channel with bot ID",
-        "channelWithModeratorId": "Channel with moderator ID"
+        "title": "Подписаться на EventSub",
+        "condition": "Условие",
+        "type": "Тип",
+        "typeError": "Пожалуйста выберите тип",
+        "version": "Версия",
+        "user": "Пользователь",
+        "channel": "Канал",
+        "channelWithBotId": "Канал с ID бота",
+        "channelWithModeratorId": "Канал с ID модератора"
       },
       "dangerZone": {
-        "title": "Danger Zone",
-        "revoke": "Revoke",
-        "revokeSessions": "Revoke sessions",
-        "revokeAllSessionsDescription": "All user sessions will be revoked",
-        "revokeAllSessionsConfirm": "Are you sure you want to revoke all sessions?"
+        "title": "Опасная зона",
+        "revoke": "Отмена",
+        "revokeSessions": "Прервать сессии",
+        "revokeAllSessionsDescription": "Все сессии пользователей будут отозваны",
+        "revokeAllSessionsConfirm": "Вы уверены, что хотите отменить все сеансы?"
       }
+    },
+    "auditLogs": {
+      "title": "Журналы аудита"
     }
   }
 }

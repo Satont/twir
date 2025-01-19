@@ -20,7 +20,8 @@
     "send": "Odoslať",
     "next": "Ďalšie",
     "previous": "Predchádzajúce",
-    "reset": "Resetovať"
+    "reset": "Resetovať",
+    "popout": "Popout v novom okne"
   },
   "sharedTexts": {
     "saved": "Uložené",
@@ -56,7 +57,10 @@
     "userSelected": "{count} vybraných používateľov",
     "userSelectPlaceholder": "Vybrať používateľa|Vybrať používateľov",
     "userNotFound": "Nenašli sa žiadni používatelia",
-    "settings": "Nastavenia"
+    "settings": "Nastavenia",
+    "create": "Vytvoriť",
+    "edit": "Upraviť",
+    "noData": "Žiadne údaje"
   },
   "sidebar": {
     "dashboard": "Prehľad",
@@ -80,13 +84,15 @@
     "games": "Hry",
     "users": "Užívatelia",
     "moderation": "Moderovanie",
-    "import": "Importovať",
-    "community": "Komunita"
-  },
-  "navbar": {
-    "logout": "Odhlásiť sa",
     "publicPage": "Verejná stránka",
-    "seeAll": "Zobraziť všetko"
+    "import": "Importovať",
+    "community": "Komunita",
+    "logout": "Odhlásiť sa",
+    "loggedAs": "Príhlásený ako",
+    "lang": "Jazyk",
+    "darkTheme": "Tmavá téma",
+    "lightTheme": "Svetlá téma",
+    "notifications": "Notifikácie"
   },
   "deleteConfirmation": {
     "text": "Ste si istí, že to chcete odstrániť?",
@@ -126,10 +132,19 @@
         }
       },
       "aliases": {
-        "label": "Aliasy"
+        "label": "Dodatočné názvy"
       },
       "gameCategories": {
         "label": "Povoliť príkaz len v určitých kategóriách (pre zakázanie nechajte prázdne)"
+      },
+      "expiration": {
+        "label": "Vypršanie platnosti",
+        "actionsLabel": "Akcia pri expirovaní platnosti",
+        "defaultWarning": "Expiráciu nie je možné nastaviť pre predvolený príkaz",
+        "actions": {
+          "delete": "Príkaz bude vymazaný",
+          "disable": "Príkaz bude deaktivovaný"
+        }
       },
       "description": {
         "label": "Popis príkazu"
@@ -148,7 +163,9 @@
         "name": "Roly",
         "placeholder": "Výber rolí na udelenie oprávnení na používanie príkazov",
         "deniedUsers": "Používatelia, ktorí tento príkaz nemôžu použiť.",
-        "allowedUsers": "Používatelia, ktorí môžu obísť obmedzenie rolí pre tento príkaz."
+        "allowedUsers": "Používatelia, ktorí môžu obísť obmedzenie rolí pre tento príkaz.",
+        "exceptions": "Výnimky",
+        "blocked": "Blokovaní užívatelia"
       },
       "restrictions": {
         "name": "Obmedzenia podľa štatistík",
@@ -230,6 +247,45 @@
       },
       "bot": {
         "title": "Správa bota"
+      },
+      "audit-logs": {
+        "title": "Denník záznamov",
+        "search-label": "Hľadať podľa",
+        "search": {
+          "channel": "Kanál",
+          "actor": "Činiteľ"
+        },
+        "operation-type-label": "Typ operácie",
+        "operation-type": {
+          "create": "Vytvorené",
+          "delete": "Odstránené",
+          "update": "Upravené"
+        },
+        "systems-label": "Systémy",
+        "systems": {
+          "badge": "Odznak",
+          "badge-user": "Používateľské odznaky",
+          "channel-command": "Príkaz",
+          "channel-command-group": "Skupina príkazov",
+          "channel-variable": "Premenná",
+          "channel-games-eight-ball": "8ball",
+          "channel-games-duel": "Duel",
+          "channel-games-russian-roulette": "Ruská ruleta",
+          "channel-games-seppuku": "Seppuku",
+          "channel-games-voteban": "Voteban",
+          "channel-greeting": "Pozdrav",
+          "channel-keyword": "Kľúčové slovo",
+          "channel-moderation-setting": "Nastavenia moderovania",
+          "channel-overlay-chat": "Prekrytie chatu",
+          "channel-overlay-dudes": "Prekrytie Dudes",
+          "channel-overlay-now-playing": "Prekrytie Now Playing",
+          "channel-roles": "Rola",
+          "channel-timers": "Timer",
+          "channel-song-requests": "Žiadosti o pieseň",
+          "channel-integrations": "Integrácia",
+          "channel-alerts": "Upozornenie",
+          "channel-chat-alerts": "Upozornenia chatu"
+        }
       }
     }
   },
@@ -586,7 +642,7 @@
       "playerNoCookieMode": "Režim inkognito pre hráča",
       "playerNoCookieModeDescription": "Ak túto možnosť povolíte, budete môcť počúvať skladby bez povolenia cookies a histórie zobrazenia. Po povolení je potrebné obnoviť stránku.",
       "neededPercentageForskip": "Percentuálny podiel užívateľov za preskočenie",
-      "channelReward": "Odmena kanálovými bodmi kanálu za žiadosť o pieseň",
+      "channelReward": "Spúšťače odmien kanálových bodov",
       "deniedChannels": "Zoznam zakázaných kanálov YouTube (zo žiadostí o skladby)",
       "deniedWords": "Zoznam zakázaných slov (týka sa názvov videí aj kanálov YouTube)",
       "deniedUsers": "Zablokovaní používatelia",
@@ -622,8 +678,8 @@
   "timers": {
     "table": {
       "columns": {
-        "intervalInMinutes": "Interval (v minútach)",
-        "intervalInMessages": "Interval (v chatových správach, nastavte 0 pre vypnutie)"
+        "intervalInMinutes": "Interval v minútach",
+        "intervalInMessages": "Interval v správach"
       }
     },
     "modal": {
@@ -694,7 +750,7 @@
   },
   "alerts": {
     "title": "Upozornenia",
-    "info": "Alerts Information",
+    "info": "Informácie o upozorneniach",
     "overlayLabel": "Upozornenia sú grafickou súčasťou implementácie príkazu alebo udalosti. Upozornenie môžete nakonfigurovať s určeným zvukom, obrázkom a textom a potom ho priradiť ku konkrétnemu príkazu, udalosti, kľúčovému slovu alebo pozdravu. Nezabudnite tiež vložiť overlay adresu URL ako zdroj prehliadača do scény streamovacieho softvéru! (napríklad OBS, XSplit atď.)",
     "copyOverlayLink": "Skopírovať link prekrytia",
     "name": "Názov",
@@ -705,14 +761,14 @@
     },
     "trigger": {
       "commands": "Spúšťací príkaz",
-      "rewards": "Channel Points Reward Trigger",
+      "rewards": "Spúšťač odmeny za kanálové body",
       "keywords": "Spúštacie kľúčové slovo",
       "greetings": "Spúšťač pozdravu"
     },
     "select": {
       "audio": "Konfigurácia zvuku",
-      "image": "Configure an image",
-      "text": "Configure text"
+      "image": "Vybrať obrázok",
+      "text": "Konfigurovať text"
     },
     "audioVolume": "Hlasitosť zvuku",
     "createAlert": "Vytvoriť upozornenie",
@@ -730,11 +786,11 @@
       "canBeUsedByModerator": "Dočasne zablokovať moderátora? *Právomoci moderátora budú po uplynutí timeoutu opäť udelené.",
       "timeoutSeconds": "Čas timeoutu (v sekundách, ak chcete zrušiť timeout, nastavte ho na 0)",
       "decisionSeconds": "Oneskorenie (v sek.)",
-      "initMessage": "Trigger Pull Announcement (Game Start Message)",
-      "surviveMessage": "User Survived Message",
-      "deathMessage": "User Lost Message",
-      "chargedBullets": "Charged Bullets Amount: {tumberSize}",
-      "tumberSize": "Revolver Сylinder's Size"
+      "initMessage": "Oznámenie spustenia (správa o spustení hry)",
+      "surviveMessage": "Správa Používateľ prežil",
+      "deathMessage": "Správa Používateľ prehral",
+      "chargedBullets": "Množstvo nabitých nábojov: {tumberSize}",
+      "tumberSize": "Veľkosť revolverového bubna"
     },
     "duel": {
       "title": "Duely",
@@ -754,15 +810,15 @@
         "title": "Správy",
         "start": {
           "title": "Úvodná správa",
-          "description": "Sends this message when duel initiated. Available variables: {'{target}, {initiator}, {duelAcceptCommandName}, {acceptSeconds}'}"
+          "description": "Túto správu odošle po spustení duelu. Dostupné premenné: {'{target}, {initiator}, {duelAcceptCommandName}, {acceptSeconds}'}"
         },
         "result": {
           "title": "Výsledná správa",
           "description": "Odošle túto správu, keď dôjde k súboju. Dostupné premenné: {'{loser}, {winner}'}"
         },
         "bothDie": {
-          "title": "«No One Survived» Message",
-          "description": "Sends this message when duel happened and both duelists are dead. Available variables: {'{target}, {initiator}'}"
+          "title": "«Nikto neprežil» Správa",
+          "description": "Odošle túto správu, keď sa uskutočnil duel a obaja účastníci súboja sú mŕtvi. Dostupné premenné: {'{target}, {initiator}'}"
         }
       },
       "settings": {
@@ -775,26 +831,26 @@
       }
     },
     "seppuku": {
-      "description": "Seppuku, is a form of Japanese ritualistic suicide by disembowelment.",
+      "description": "Seppuku je forma japonskej rituálnej samovraždy vykuchaním.",
       "message": "Správa",
       "timeoutModerators": "Povoliť seppuku pre moderátorov",
-      "messageModerators": "Message when moderator used seppuku",
-      "timeoutSeconds": "Timeout seconds"
+      "messageModerators": "Správa, keď moderátor použil seppuku",
+      "timeoutSeconds": "Timeout v sekundách"
     },
     "voteban": {
       "description": "Začnite súdny proces s porotou s vinným četujúcim!",
-      "banMessage": "Message on ban",
-      "banMessageModerators": "Message for ban moderator",
+      "banMessage": "Správa pri bane",
+      "banMessageModerators": "Správa pri bane moderátora",
       "surviveMessage": "Správa o prežití",
       "surviveMessageModerators": "Správa o prežití pre moderátora",
-      "initialMessage": "Init message",
+      "initialMessage": "Úvodná správa",
       "neededVotes": "Potrebné hlasy",
       "banDuration": "Dĺžka banu",
-      "voteMode": "Mode of vote",
+      "voteMode": "Spôsob hlasovania",
       "voteDuration": "Dĺžka hlasovania v sekundách",
-      "wordsNegative": "Words for vote to \"no\" option",
-      "wordsPositive": "Words for vote to \"yes\" option",
-      "timeoutModerators": "Enable voteban on moderators"
+      "wordsNegative": "Slová pre hlasovanie pre možnosť \"nie\"",
+      "wordsPositive": "Slová pre hlasovanie pre možnosť \"áno\"",
+      "timeoutModerators": "Aktivovať voteban proti moderátorom"
     }
   },
   "community": {
@@ -836,16 +892,16 @@
         "stats": "Štatistiky",
         "users": "Užívatelia",
         "usersTabs": {
-          "top": "Top",
+          "top": "Hore",
           "history": "História"
         }
       }
     }
   },
   "filePicker": {
-    "innerText": "Select or drop {type} here.",
+    "innerText": "Tu vyberte alebo presuňte {type}.",
     "usedSpace": "Použité {used} / {max} MB",
-    "emptyText": "No {type} uploaded."
+    "emptyText": "Nebol nahraný žiadny {type}."
   },
   "overlaysRegistry": {
     "description": "Táto kategória umožňuje vytvárať vlastné konfigurovateľné prekrytia pre OBS. V súčasnosti sú podporované len HTML prekrytia, ale neskôr budú pridané aj ďalšie varianty prekrytia. Ďakujeme vám za trpezlivosť. <3",
@@ -891,10 +947,10 @@
       "streamOnline": "Vysielanie je online",
       "streamOffline": "Vysielanie je offline",
       "chatCleared": "Chat vyčistený",
-      "userBanned": "User Ban",
+      "userBanned": "Bany používateľov",
       "channelUnbanRequestCreate": "Vytvoriť žiadosť o unban",
       "channelUnbanRequestResolve": "Vyriešiť žiadosť o unban",
-      "messageDelete": "Message Deleted"
+      "messageDelete": "Správa bola zmazaná"
     }
   },
   "moderation": {
@@ -903,7 +959,7 @@
     "banDescription": "Nastavte na 0 pre trvalý ban.",
     "banMessage": "Správa timeoutu",
     "warningMessage": "Varovná správa",
-    "warningMaxCount": "Warning Maximum Count",
+    "warningMaxCount": "Upozornenie Maximálny počet",
     "excludedRoles": "Vyberte roly, na ktoré tento filter nebude mať vplyv:",
     "types": {
       "links": {
@@ -914,7 +970,7 @@
         "name": "Zoznam zakázaných slov",
         "description": "Pomáha udržiavať čistý chat filtrovaním slov alebo fráz uvedených v preddefinovanom zozname, čím zabraňuje ich zobrazovaniu.",
         "empty": "Zoznam nepovolených slov je prázdny! Môžete ho vytvoriť tu.",
-        "regexp": "If you are an advanced user, Disallowed Words List also support regular expressions. Regular Expression should be written in golang format! See {0} here.",
+        "regexp": "Ak ste pokročilý používateľ, zoznam zakázaných slov podporuje aj regulárne výrazy. Regulárny výraz by mal byť zapísaný vo formáte golang! Pozri {0} tu.",
         "regexpCheatSheet": "Ťahák"
       },
       "symbols": {
@@ -960,7 +1016,7 @@
     "title": "Užívateľské nastavenia",
     "account": {
       "title": "Účet",
-      "showMeOnLanding": "Show yourself on the Landing Page?",
+      "showMeOnLanding": "Ukázať sa na domovskej stránke?",
       "regenerateApiKey": {
         "button": "Vygenerovať súkromný kľúč API",
         "info": "Tento kľúč sa používa pre všetky odkazy prekrytí. Pri jeho vygenerovaní musíte skontrolovať všetky svoje prekrytia v softvéri na streamovanie a nahradiť adresy URL novými odkazmi."
@@ -983,14 +1039,14 @@
     "title": "Administračný panel",
     "notifications": {
       "title": "Notifikácie",
-      "formTitle": "Send or edit notification",
+      "formTitle": "Odoslať alebo upraviť oznámenie",
       "emptyNotifications": "Žiadne upozornenia",
       "userLabel": "Užívateľ",
       "userPlaceholder": "Vybrať užívateľa",
       "messageLabel": "Správa",
       "messagePreview": "Ukážka",
       "createdAt": "Vytvorené",
-      "globals": "Globals",
+      "globals": "Global",
       "users": "Užívatelia",
       "confirmResetForm": "Ste si istí, že chcete resetovať formulár?"
     },
@@ -1002,7 +1058,7 @@
       "noUsers": "Žiadni používatelia",
       "filters": "Filtre",
       "clearFilters": "Vymazať filtre",
-      "countSelected": "{count} vybraný",
+      "countSelected": "{count} vybraných",
       "isAdmin": "Admin",
       "isBanned": "Zabanovaný",
       "isBotEnabled": "Bot povolený",
@@ -1010,9 +1066,9 @@
       "badgesGroup": "Odznaky",
       "giveBan": "Zabanovať užívateľa",
       "unBan": "Odbanovať užívateľa",
-      "giveMod": "Give admin",
+      "giveMod": "Dať admina",
       "unMod": "Odstrániť správcu",
-      "dropSession": "Drop session"
+      "dropSession": "Zrušiť reláciu"
     },
     "manageBadges": {
       "title": "Odznaky",
@@ -1028,23 +1084,26 @@
     "adminActions": {
       "title": "Akcie",
       "eventsub": {
-        "title": "Subscribe to EventSub",
+        "title": "Prihlásiť sa na odber EventSub",
         "condition": "Podmienka",
         "type": "Typ",
-        "typeError": "Please select a type",
+        "typeError": "Vyberte typ",
         "version": "Verzia",
         "user": "Užívateľ",
         "channel": "Kanál",
-        "channelWithBotId": "Channel with bot ID",
-        "channelWithModeratorId": "Channel with moderator ID"
+        "channelWithBotId": "Kanál s bot ID",
+        "channelWithModeratorId": "Kanál s Moderator ID"
       },
       "dangerZone": {
-        "title": "Danger Zone",
-        "revoke": "Revoke",
-        "revokeSessions": "Revoke sessions",
-        "revokeAllSessionsDescription": "All user sessions will be revoked",
-        "revokeAllSessionsConfirm": "Are you sure you want to revoke all sessions?"
+        "title": "Nebezpečná zóna",
+        "revoke": "Odvolať",
+        "revokeSessions": "Odvolať relácie",
+        "revokeAllSessionsDescription": "Všetky používateľské relácie budú odvolané",
+        "revokeAllSessionsConfirm": "Naozaj chcete odvolať všetky relácie?"
       }
+    },
+    "auditLogs": {
+      "title": "Denník záznamov"
     }
   }
 }
