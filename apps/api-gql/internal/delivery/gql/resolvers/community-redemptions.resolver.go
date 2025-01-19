@@ -69,6 +69,11 @@ func (r *queryResolver) RewardsRedemptionsHistory(ctx context.Context, opts gqlm
 		query = query.Where(`"channel_redemptions_history"."reward_id" IN ?`, opts.RewardsIds.Value())
 	}
 
+	var total int64
+	if err := query.Model(&model.ChannelRedemption{}).Count(&total).Error; err != nil {
+		return nil, fmt.Errorf("failed to count total redemptions: %w", err)
+	}
+
 	var entities []model.ChannelRedemption
 	if err := query.
 		Limit(perPage).
@@ -124,7 +129,7 @@ func (r *queryResolver) RewardsRedemptionsHistory(ctx context.Context, opts gqlm
 
 	return &gqlmodel.TwitchRedemptionResponse{
 		Redemptions: res,
-		Total:       0,
+		Total:       int(total),
 	}, nil
 }
 

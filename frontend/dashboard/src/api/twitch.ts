@@ -1,4 +1,6 @@
 import { useMutation, useQuery } from '@tanstack/vue-query'
+import { useQuery as useGqlQuery } from '@urql/vue'
+import { createGlobalState } from '@vueuse/core'
 import { isRef, unref } from 'vue'
 
 import type { GetResponse as RewardsResponse } from '@twir/api/messages/rewards/rewards'
@@ -6,6 +8,7 @@ import type { TwitchGetUsersResponse, TwitchSearchChannelsRequest, TwitchSearchC
 import type { ComputedRef, MaybeRef, Ref } from 'vue'
 
 import { protectedApiClient, unprotectedApiClient } from '@/api/twirp.js'
+import { graphql } from '@/gql/gql.js'
 
 type TwitchIn = MaybeRef<string | string[] | null>
 export function useTwitchGetUsers(opts: {
@@ -65,6 +68,22 @@ export function useTwitchRewards() {
 		},
 	})
 }
+
+export const useTwitchRewardsNew = createGlobalState(() => useGqlQuery({
+	query: graphql(`
+		query GetChannelRewards {
+			twitchRewards {
+				id
+				title
+				cost
+				imageUrls
+				backgroundColor
+				enabled
+				usedTimes
+			}
+		}
+	`),
+}))
 
 export function useTwitchSearchCategories(query: string | Ref<string>) {
 	return useQuery({

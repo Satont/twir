@@ -41,7 +41,7 @@ func (c *Handler) handleChannelPointsRewardRedemptionAdd(
 			UserID:       event.UserID,
 			RewardID:     uuid.MustParse(event.Reward.ID),
 			RewardTitle:  event.Reward.Title,
-			RewardPrompt: null.StringFrom(event.Reward.Prompt),
+			RewardPrompt: null.StringFrom(event.UserInput),
 			RewardCost:   event.Reward.Cost,
 			RedeemedAt:   time.Now().UTC(),
 		},
